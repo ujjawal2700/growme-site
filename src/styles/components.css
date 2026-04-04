@@ -1,0 +1,75 @@
+/* SKEUOMORPHIC UTILITIES */
+
+/* Raised Surface (Cards, prominent sections) */
+.skeuo-raised {
+  background: linear-gradient(160deg, #1e1e2a 0%, #14141e 60%, #0e0e18 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.07) inset,
+    0 -1px 0 rgba(0, 0, 0, 0.5) inset,
+    0 4px 16px rgba(0, 0, 0, 0.6),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* Pressed Surface (Active inputs, toggled buttons, deeply recessed areas) */
+.skeuo-pressed {
+  background: #0d0d14;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.6) inset,
+    0 1px 0 rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+
+/* Active/Focused Input field with neon glow */
+.skeuo-input-active {
+  background: #0d0d14;
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.6) inset,
+    0 1px 0 rgba(255, 255, 255, 0.04),
+    inset 0 0 12px rgba(0, 255, 178, 0.15);
+  border: 1px solid var(--gray);
+  border-bottom: 2px solid var(--accent);
+}
+
+/* Stamped tags / chips (looks pressed into the surface) */
+.skeuo-tag {
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4) inset, 0 1px 0 rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,0,0,0.5);
+  padding: 4px 10px;
+}
+
+/* Raised button */
+.skeuo-btn {
+  background: var(--purple);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.3) inset,
+    0 -2px 0 rgba(0, 0, 0, 0.3) inset,
+    0 4px 12px rgba(91, 60, 245, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.skeuo-btn:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 0 rgba(0, 0, 0, 0.4) inset,
+    0 -1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 2px 4px rgba(91, 60, 245, 0.4);
+}
+
+/* Outline button */
+.skeuo-btn-outline {
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.5),
+    0 1px 3px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.1s, box-shadow 0.1s, background 0.2s;
+}
+
+.skeuo-btn-outline:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4) inset;
+}
