@@ -27,7 +27,7 @@ export default function BlogPage() {
         <div style={{ padding: '0 48px' }}>
           {/* HERO */}
           <SectionEyebrow>GrowMe Blog</SectionEyebrow>
-          <h1 style={{ fontFamily: 'var(--font-syne)', fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: 800, marginBottom: '60px' }}>
+          <h1 style={{ fontFamily: 'var(--font-spartan)', fontSize: 'clamp(3rem, 6vw, 5rem)', fontWeight: 800, marginBottom: '60px' }}>
             The Growth <span style={{ color: 'var(--purple-light)' }}>Lab.</span>
           </h1>
 
@@ -39,7 +39,7 @@ export default function BlogPage() {
                 className={i === 0 ? "skeuo-pressed" : "skeuo-raised"}
                 style={{ 
                   padding: '8px 20px', 
-                  fontFamily: 'var(--font-space-mono)', 
+                  fontFamily: 'var(--font-poppins)', 
                   fontSize: '0.8rem',
                   color: i === 0 ? 'var(--accent)' : 'var(--white)',
                   whiteSpace: 'nowrap',
@@ -57,20 +57,20 @@ export default function BlogPage() {
               <RevealWrapper key={i} delayIndex={i}>
                 <div className="skeuo-raised group" style={{ height: '100%', display: 'flex', flexDirection: 'column', overflow: 'hidden', padding: '0' }}>
                   <div style={{ height: '200px', background: 'linear-gradient(135deg, #2a2a38, #1a1a24)', position: 'relative' }}>
-                    <div style={{ position: 'absolute', top: '16px', left: '16px' }} className="skeuo-tag font-[family-name:var(--font-space-mono)] text-[0.6rem] text-[var(--accent)]">
+                    <div style={{ position: 'absolute', top: '16px', left: '16px' }} className="skeuo-tag font-[family-name:var(--font-poppins)] text-[0.6rem] text-[var(--accent)]">
                       {post.cat}
                     </div>
                   </div>
                   <div style={{ padding: '24px', flexGrow: 1, display: 'flex', flexDirection: 'column' }}>
-                    <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '12px' }}>{post.title}</h3>
+                    <h3 style={{ fontFamily: 'var(--font-spartan)', fontSize: '1.25rem', fontWeight: 700, marginBottom: '12px' }}>{post.title}</h3>
                     <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6, marginBottom: '24px', flexGrow: 1 }}>{post.desc}</p>
                     
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '16px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--purple)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', fontFamily: 'var(--font-syne)', fontWeight: 800 }}>{post.author}</div>
+                        <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'var(--purple)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.6rem', fontFamily: 'var(--font-spartan)', fontWeight: 800 }}>{post.author}</div>
                         <span style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{post.date}</span>
                       </div>
-                      <span style={{ fontFamily: 'var(--font-space-mono)', color: 'var(--purple-light)', fontSize: '0.7rem' }}>READ →</span>
+                      <span style={{ fontFamily: 'var(--font-poppins)', color: 'var(--purple-light)', fontSize: '0.7rem' }}>READ →</span>
                     </div>
                   </div>
                 </div>

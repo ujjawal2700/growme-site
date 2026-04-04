@@ -8,7 +8,7 @@ interface Props {
 
 export default function SectionEyebrow({ children, className = '', delay = 0.2 }: Props) {
   const style: React.CSSProperties = {
-    fontFamily: 'var(--font-space-mono)',
+    fontFamily: 'var(--font-poppins)',
     fontSize: '0.7rem',
     letterSpacing: '0.2em',
     textTransform: 'uppercase',

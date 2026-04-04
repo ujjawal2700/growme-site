@@ -1,26 +1,26 @@
 import type { Metadata } from 'next';
-import { DM_Sans, Space_Mono, Syne } from 'next/font/google';
+import { League_Spartan, Poppins, Archivo } from 'next/font/google';
 import '@/styles/globals.css';
 import CustomCursor from '@/components/layout/CustomCursor';
 
-const dmSans = DM_Sans({
+const spartan = League_Spartan({
   subsets: ['latin'],
-  weight: ['300', '400'],
-  variable: '--font-dm-sans',
+  weight: ['400', '700', '800'],
+  variable: '--font-spartan',
   display: 'swap',
 });
 
-const spaceMono = Space_Mono({
+const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-space-mono',
+  weight: ['300', '400', '500', '600', '700'],
+  variable: '--font-poppins',
   display: 'swap',
 });
 
-const syne = Syne({
+const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['400', '600', '700', '800'],
-  variable: '--font-syne',
+  weight: ['800', '900'],
+  variable: '--font-archivo',
   display: 'swap',
 });
 
@@ -37,7 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${dmSans.variable} ${spaceMono.variable} ${syne.variable} font-sans`}
+        className={`${spartan.variable} ${poppins.variable} ${archivo.variable} font-sans`}
       >
         <CustomCursor />
         {children}

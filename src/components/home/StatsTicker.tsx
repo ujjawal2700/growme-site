@@ -26,14 +26,14 @@ export default function StatsTicker() {
   };
 
   const numStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-syne)',
+    fontFamily: 'var(--font-spartan)',
     fontWeight: 800,
     fontSize: '1.5rem',
     color: 'var(--purple-light)',
   };
 
   const labelStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-space-mono)',
+    fontFamily: 'var(--font-poppins)',
     fontSize: '0.65rem',
     textTransform: 'uppercase',
     letterSpacing: '0.1em',

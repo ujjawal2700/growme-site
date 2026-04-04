@@ -36,8 +36,7 @@ export default function Navbar() {
   };
 
   const logoStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-syne)',
-    fontWeight: 800,
+    fontFamily: 'var(--font-archivo)', fontWeight: 900,
     fontSize: '1.4rem',
     letterSpacing: '-0.02em',
     textDecoration: 'none',
@@ -45,7 +44,7 @@ export default function Navbar() {
   };
 
   const linkStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-space-mono)',
+    fontFamily: 'var(--font-poppins)',
     fontSize: '0.72rem',
     color: 'var(--text-muted)',
     textDecoration: 'none',

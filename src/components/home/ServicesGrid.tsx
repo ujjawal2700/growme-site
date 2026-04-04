@@ -28,7 +28,7 @@ export default function ServicesGrid() {
   };
 
   const titleStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-syne)',
+    fontFamily: 'var(--font-spartan)',
     fontWeight: 800,
     fontSize: 'clamp(2rem, 4vw, 3.5rem)',
     lineHeight: 1.05,
@@ -38,7 +38,7 @@ export default function ServicesGrid() {
   const subStyle: React.CSSProperties = {
     fontSize: '0.85rem',
     color: 'var(--text-muted)',
-    fontFamily: 'var(--font-space-mono)',
+    fontFamily: 'var(--font-poppins)',
     maxWidth: '200px',
     textAlign: 'right',
     lineHeight: 1.6,
@@ -70,14 +70,14 @@ export default function ServicesGrid() {
     position: 'absolute',
     top: '20px',
     right: '24px',
-    fontFamily: 'var(--font-space-mono)',
+    fontFamily: 'var(--font-poppins)',
     fontSize: '0.6rem',
     color: 'var(--gray2)',
     letterSpacing: '0.1em',
   };
 
   const nameStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-syne)',
+    fontFamily: 'var(--font-spartan)',
     fontWeight: 700,
     fontSize: '1.15rem',
     marginBottom: '10px',
@@ -135,7 +135,7 @@ export default function ServicesGrid() {
               <div style={descStyle}>{service.desc}</div>
               <div style={tagsContainerStyle}>
                 {service.tags.map(tag => (
-                  <span key={tag} className="skeuo-tag font-[family-name:var(--font-space-mono)] text-[0.58rem] tracking-wider uppercase text-[var(--purple-light)]">
+                  <span key={tag} className="skeuo-tag font-[family-name:var(--font-poppins)] text-[0.58rem] tracking-wider uppercase text-[var(--purple-light)]">
                     {tag}
                   </span>
                 ))}

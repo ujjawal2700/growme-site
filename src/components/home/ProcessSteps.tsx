@@ -22,7 +22,7 @@ export default function ProcessSteps() {
     <section id="process" style={sectionStyle}>
       <RevealWrapper>
         <SectionEyebrow>How we work</SectionEyebrow>
-        <h2 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.02em'}}>
+        <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.02em'}}>
           From Idea to<br/>Launch in 4 Steps
         </h2>
       </RevealWrapper>
@@ -44,14 +44,14 @@ export default function ProcessSteps() {
               style={{
                 width: '56px', height: '56px', borderRadius: '50%',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
-                margin: '0 auto 24px', fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem',
+                margin: '0 auto 24px', fontFamily: 'var(--font-poppins)', fontSize: '0.8rem',
                 position: 'relative', zIndex: 1, transition: 'all 0.3s'
               }}
               className="skeuo-raised step-circle group"
             >
               <span className="text-[var(--purple-light)] group-hover:text-[var(--accent)] transition-colors inline-block">{step.num}</span>
             </div>
-            <div style={{ fontFamily: 'var(--font-syne)', fontWeight: 700, fontSize: '1rem', marginBottom: '10px' }}>
+            <div style={{ fontFamily: 'var(--font-spartan)', fontWeight: 700, fontSize: '1rem', marginBottom: '10px' }}>
               {step.title}
             </div>
             <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>

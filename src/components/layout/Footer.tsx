@@ -18,8 +18,7 @@ export default function Footer() {
   };
 
   const logoStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-syne)',
-    fontWeight: 800,
+    fontFamily: 'var(--font-archivo)', fontWeight: 900,
     fontSize: '2rem',
     letterSpacing: '-0.02em',
     color: 'var(--white)',
@@ -40,7 +39,7 @@ export default function Footer() {
   };
 
   const colTitleStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-space-mono)',
+    fontFamily: 'var(--font-poppins)',
     fontSize: '0.6rem',
     letterSpacing: '0.15em',
     textTransform: 'uppercase',
@@ -106,14 +105,14 @@ export default function Footer() {
       </div>
       
       <div style={bottomStyle}>
-        <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', letterSpacing: '0.08em' }}>
+        <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', letterSpacing: '0.08em' }}>
           © {new Date().getFullYear()} GrowMe · All Rights Reserved · growme.in
         </div>
         <div style={{ display: 'flex', gap: '20px' }}>
-          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Instagram</Link>
-          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>LinkedIn</Link>
-          <Link href="/contact" style={{...linkStyle, fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>WhatsApp</Link>
-          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Twitter</Link>
+          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Instagram</Link>
+          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>LinkedIn</Link>
+          <Link href="/contact" style={{...linkStyle, fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>WhatsApp</Link>
+          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Twitter</Link>
         </div>
       </div>
 
