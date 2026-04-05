@@ -132,7 +132,7 @@ export default function LoadingScreen() {
                   inset: 0,
                   background: 'linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%)',
                   backgroundSize: '200% 100%',
-                  mixMode: 'overlay',
+                  mixBlendMode: 'overlay',
                   pointerEvents: 'none'
                 }}
               />
