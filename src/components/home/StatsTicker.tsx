@@ -1,75 +1,89 @@
+'use client';
+
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const stats = [
+  { num: '200+', label: 'Projects Completed' },
+  { num: '98%', label: 'Client Satisfaction' },
+  { num: '50+', label: 'Team Members' },
+  { num: '5yr', label: 'Agency Experience' },
+];
 
 export default function StatsTicker() {
-  const barStyle: React.CSSProperties = {
-    borderTop: '1px solid rgba(255,255,255,0.06)',
-    borderBottom: '1px solid rgba(255,255,255,0.06)',
-    padding: '20px 0',
-    overflow: 'hidden',
-    position: 'relative',
-    background: 'rgba(255,255,255,0.015)',
-  };
-
-  const trackStyle: React.CSSProperties = {
-    display: 'flex',
-    gap: '80px',
-    animation: 'ticker 20s linear infinite',
-    whiteSpace: 'nowrap',
-    width: 'max-content',
-  };
-
-  const itemStyle: React.CSSProperties = {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '16px',
-    flexShrink: 0,
-  };
-
-  const numStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-syne)',
-    fontWeight: 800,
-    fontSize: '1.5rem',
-    color: 'var(--purple-light)',
-  };
-
-  const labelStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-space-mono)',
-    fontSize: '0.65rem',
-    textTransform: 'uppercase',
-    letterSpacing: '0.1em',
-    color: 'var(--text-muted)',
-  };
-
-  const dividerStyle: React.CSSProperties = {
-    color: 'var(--gray2)',
-    fontSize: '1.2rem',
-  };
-
   // We duplicate the stats to create a seamless infinite loop
-  const stats = [
-    { num: '200+', label: 'Projects Completed' },
-    { num: '98%', label: 'Client Satisfaction' },
-    { num: '50+', label: 'Team Members' },
-    { num: '5yr', label: 'Agency Experience' },
-  ];
-
   const duplicatedStats = [...stats, ...stats, ...stats, ...stats];
 
   return (
-    <div style={barStyle}>
-      <div style={trackStyle}>
-        {duplicatedStats.map((stat, i) => (
-          <React.Fragment key={i}>
-            <div style={itemStyle}>
-              <span style={numStyle}>{stat.num}</span>
-              <span style={labelStyle}>{stat.label}</span>
+    <div style={{
+      padding: '40px 0',
+      background: 'transparent',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* THE NEUMORPHIC INSET TRACK */}
+      <div style={{
+        margin: '0 48px',
+        padding: '24px 0',
+        borderRadius: '24px',
+        background: '#E0E5EC',
+        boxShadow: 'inset 6px 6px 12px rgba(163, 177, 198, 0.4), inset -6px -6px 12px rgba(255, 255, 255, 0.6)',
+        overflow: 'hidden',
+        position: 'relative'
+      }}>
+        <motion.div 
+           animate={{ x: ['0%', '-50%'] }}
+           transition={{ duration: 30, repeat: Infinity, ease: 'linear' }}
+           style={{
+             display: 'flex',
+             gap: '100px',
+             whiteSpace: 'nowrap',
+             width: 'max-content',
+             paddingLeft: '50px'
+           }}
+        >
+          {duplicatedStats.map((stat, i) => (
+            <div key={i} style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '20px',
+              flexShrink: 0,
+            }}>
+              <span style={{
+                fontFamily: 'var(--font-outfit)',
+                fontWeight: 800,
+                fontSize: '1.75rem',
+                color: 'var(--primary)',
+                textShadow: '0 4px 10px rgba(59, 130, 246, 0.1)'
+              }}>{stat.num}</span>
+              
+              <span style={{
+                fontFamily: 'var(--font-inter)',
+                fontSize: '0.8rem',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.15em',
+                color: 'var(--text-muted)'
+              }}>{stat.label}</span>
+              
+              {/* SOFT DIVIDER DOT */}
+              <div style={{ 
+                width: '6px', 
+                height: '6px', 
+                borderRadius: '50%', 
+                background: 'rgba(163, 177, 198, 0.3)',
+                marginLeft: '40px' 
+              }} />
             </div>
-            {i !== duplicatedStats.length - 1 && (
-              <span style={dividerStyle}>/</span>
-            )}
-          </React.Fragment>
-        ))}
+          ))}
+        </motion.div>
       </div>
+
+      <style>{`
+         @media (max-width: 768px) {
+           div { margin: 0 24px !important; }
+         }
+      `}</style>
     </div>
   );
 }

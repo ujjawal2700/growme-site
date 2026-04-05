@@ -1,108 +1,187 @@
+'use client';
+
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import FloatingOrbs from '@/components/ui/FloatingOrbs';
 import SectionEyebrow from '@/components/ui/SectionEyebrow';
-import RevealWrapper from '@/components/ui/RevealWrapper';
+import { motion } from 'framer-motion';
 
 export default function AboutPage() {
-  const pageStyle: React.CSSProperties = {
-    paddingTop: '120px',
-  };
-
   const values = [
-    { icon: '💡', title: 'Innovation', desc: 'We don’t follow trends; we set them with cutting-edge tech.' },
-    { icon: '⚡', title: 'Speed', desc: 'Agile execution designed to beat your competitors to market.' },
-    { icon: '💎', title: 'Quality', desc: 'Zero compromises. Pixel-perfect UI and bug-free code.' },
-    { icon: '🔍', title: 'Transparency', desc: 'Clear communication, open timelines, no hidden fees.' },
-    { icon: '🤝', title: 'Partnership', desc: 'Your success is our success. We scale with you.' },
-    { icon: '🏆', title: 'Excellence', desc: 'Delivering work that defines industry standards.' },
+    { icon: '💡', title: 'Innovation', desc: 'We build high-end solutions that help your business stay ahead of the curve.' },
+    { icon: '⚡', title: 'Speed', desc: 'Fast, efficient delivery to ensure your business grows without delay.' },
+    { icon: '💎', title: 'Quality', desc: 'Zero compromises. We deliver beautiful, professional, and reliable work.' },
+    { icon: '🔍', title: 'Clarity', desc: 'Simple communication, transparent timelines, and no technical jargon.' },
+    { icon: '🤝', title: 'Partnership', desc: 'We work by your side to ensure your business reaches its full potential.' },
+    { icon: '🏆', title: 'Excellence', desc: 'Exceeding expectations to provide you with a world-class digital presence.' },
   ];
 
   const team = [
-    { role: 'CEO / Founder', name: 'Alaric Voss', grad: 'linear-gradient(135deg, #5b3cf5, #ff3d6b)' },
-    { role: 'CTO', name: 'Elena Rostova', grad: 'linear-gradient(135deg, #00ffb2, #5b3cf5)' },
-    { role: 'Head of Design', name: 'Julian Vance', grad: 'linear-gradient(135deg, #ff3d6b, #00ffb2)' },
-    { role: 'Marketing Lead', name: 'Maya Lin', grad: 'linear-gradient(135deg, #8b6fff, #5b3cf5)' },
+    { role: 'Founder & CEO', name: 'Alaric Voss', initials: 'AV' },
+    { role: 'Lead Architect', name: 'Elena Rostova', initials: 'ER' },
+    { role: 'Creative Director', name: 'Julian Vance', initials: 'JV' },
+    { role: 'Strategy Lead', name: 'Maya Lin', initials: 'ML' },
   ];
 
   return (
-    <main>
+    <main style={{ background: 'var(--bg)', minHeight: '100vh' }}>
       <Navbar />
       
-      <div style={pageStyle}>
+      <div style={{ paddingTop: '160px' }}>
         {/* HERO */}
         <section style={{ padding: '80px 48px', position: 'relative', textAlign: 'center' }}>
-          <FloatingOrbs color="rgba(91,60,245,0.2)" size={500} top="-100px" left="50%" className="-translate-x-1/2" />
           <SectionEyebrow className="justify-center">About GrowMe</SectionEyebrow>
-          <h1 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(3rem, 6vw, 5rem)', position: 'relative', zIndex: 1 }}>
-            Building Tomorrow's<br/>
-            <span style={{ color: 'var(--accent)' }}>Digital Infrastructure.</span><br/>
-            Today.
+          <h1 style={{ 
+            fontFamily: 'var(--font-outfit)', 
+            fontWeight: 800, 
+            fontSize: 'clamp(3rem, 6vw, 4.5rem)', 
+            color: 'var(--text)', 
+            letterSpacing: '-0.02em',
+            margin: '24px auto',
+            maxWidth: '1000px',
+            lineHeight: 1.1
+          }}>
+            Building High-End Digital<br/>
+            <span style={{ color: 'var(--primary)' }}>Empowering Your Success.</span>
           </h1>
+          <p style={{ 
+            fontFamily: 'var(--font-inter)', 
+            fontSize: '1.25rem', 
+            color: 'var(--text-muted)', 
+            maxWidth: '600px', 
+            margin: '0 auto',
+            lineHeight: 1.6
+          }}>
+            We bridge the gap between complex technology and your business goals. Simple. High-End. Minimal.
+          </p>
         </section>
 
         {/* MISSION & VISION */}
-        <section style={{ padding: '60px 48px' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-            <RevealWrapper>
-              <div className="skeuo-raised" style={{ padding: '40px', height: '100%' }}>
-                <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.5rem', marginBottom: '16px', color: 'var(--purple-light)' }}>Our Mission</h3>
-                <p style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>To architect scalable, high-performance digital ecosystems that empower brands to dominate their respective markets. We engineer growth through ruthless optimization and breathtaking design.</p>
-              </div>
-            </RevealWrapper>
-            <RevealWrapper delayIndex={1}>
-              <div className="skeuo-pressed" style={{ padding: '40px', height: '100%' }}>
-                <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.5rem', marginBottom: '16px', color: 'var(--accent)' }}>Our Vision</h3>
-                <p style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>We envision a web where aesthetic brilliance and technical supremacy are inextricably linked, establishing a new baseline for what digital products can achieve for human interaction.</p>
-              </div>
-            </RevealWrapper>
+        <section style={{ padding: '80px 48px' }}>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))', 
+            gap: '32px',
+            maxWidth: '1200px',
+            margin: '0 auto' 
+          }}>
+            <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               style={{ 
+                 padding: '56px 48px', 
+                 height: '100%',
+                 background: '#E0E5EC',
+                 borderRadius: '32px',
+                 boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
+               }}
+            >
+              <h3 style={{ fontFamily: 'var(--font-outfit)', fontSize: '1.75rem', fontWeight: 700, marginBottom: '24px', color: 'var(--primary)' }}>Our Mission</h3>
+              <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', lineHeight: 1.8, fontSize: '1.05rem' }}>
+                To provide high-end, approachable digital solutions that empower businesses to thrive in the modern age. We prioritize clarity, quality, and human-centric design in everything we build.
+              </p>
+            </motion.div>
+
+            <motion.div 
+               initial={{ opacity: 0, y: 20 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.1 }}
+               style={{ 
+                 padding: '56px 48px', 
+                 height: '100%',
+                 background: '#E0E5EC',
+                 borderRadius: '32px',
+                 boxShadow: 'inset 6px 6px 12px rgba(163, 177, 198, 0.4), inset -6px -6px 12px rgba(255, 255, 255, 0.6)',
+               }}
+            >
+              <h3 style={{ fontFamily: 'var(--font-outfit)', fontSize: '1.75rem', fontWeight: 700, marginBottom: '24px', color: 'var(--text)' }}>Our Vision</h3>
+              <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', lineHeight: 1.8, fontSize: '1.05rem' }}>
+                We envision a digital world where professional technology is accessible to everyone. By removing technical complexity, we allow you to focus on what you do best—running your business.
+              </p>
+            </motion.div>
           </div>
         </section>
 
         {/* STATS */}
-        <section style={{ padding: '60px 48px', background: 'var(--gray)' }}>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', textAlign: 'center' }}>
+        <section style={{ padding: '100px 48px' }}>
+          <div style={{ 
+            display: 'grid', 
+            gridTemplateColumns: 'repeat(4, 1fr)', 
+            gap: '32px', 
+            maxWidth: '1200px',
+            margin: '0 auto',
+            textAlign: 'center' 
+          }}>
             {[{v:'2024', l:'Founded'}, {v:'200+', l:'Projects'}, {v:'50+', l:'Clients'}, {v:'15+', l:'Experts'}].map((stat, i) => (
-              <RevealWrapper key={i} delayIndex={i}>
-                <div style={{ fontFamily: 'var(--font-syne)', fontSize: '3rem', fontWeight: 800, color: 'var(--white)' }}>{stat.v}</div>
-                <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem', color: 'var(--accent)' }}>{stat.l}</div>
-              </RevealWrapper>
+              <div key={i}>
+                <div style={{ fontFamily: 'var(--font-outfit)', fontSize: '3rem', fontWeight: 800, color: 'var(--primary)', marginBottom: '12px' }}>{stat.v}</div>
+                <div style={{ fontFamily: 'var(--font-inter)', fontSize: '0.9rem', fontWeight: 700, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{stat.l}</div>
+              </div>
             ))}
           </div>
         </section>
 
         {/* CORE VALUES */}
         <section style={{ padding: '120px 48px' }}>
-          <SectionEyebrow>Our DNA</SectionEyebrow>
-          <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '3rem', marginBottom: '60px' }}>Core Values</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
-            {values.map((v, i) => (
-              <RevealWrapper key={i} delayIndex={i}>
-                <div className="skeuo-raised" style={{ padding: '32px' }}>
-                  <div style={{ fontSize: '2rem', marginBottom: '16px' }}>{v.icon}</div>
-                  <h4 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.2rem', marginBottom: '8px' }}>{v.title}</h4>
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{v.desc}</p>
-                </div>
-              </RevealWrapper>
-            ))}
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <SectionEyebrow>Our Value</SectionEyebrow>
+            <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '3rem', color: 'var(--text)', marginBottom: '60px' }}>What Defines Us</h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
+              {values.map((v, i) => (
+                <motion.div 
+                  key={i} 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  style={{ 
+                    padding: '40px', 
+                    borderRadius: '24px',
+                    background: '#E0E5EC',
+                    boxShadow: '8px 8px 16px rgba(163, 177, 198, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.6)',
+                  }}
+                >
+                  <div style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{v.icon}</div>
+                  <h4 style={{ fontFamily: 'var(--font-outfit)', fontSize: '1.5rem', fontWeight: 700, marginBottom: '12px', color: 'var(--text)' }}>{v.title}</h4>
+                  <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', fontSize: '1rem', lineHeight: 1.6 }}>{v.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* TEAM */}
-        <section style={{ padding: '120px 48px', background: 'var(--gray)' }}>
-          <SectionEyebrow>The Minds</SectionEyebrow>
-          <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '3rem', marginBottom: '60px' }}>Meet The Team</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
-            {team.map((t, i) => (
-              <RevealWrapper key={i} delayIndex={i}>
-                <div className="skeuo-raised" style={{ padding: '32px', textAlign: 'center' }}>
-                  <div style={{ width: '120px', height: '120px', borderRadius: '50%', background: t.grad, margin: '0 auto 24px', boxShadow: '0 8px 24px rgba(0,0,0,0.5)' }} />
-                  <h4 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.2rem', marginBottom: '4px' }}>{t.name}</h4>
-                  <p style={{ fontFamily: 'var(--font-space-mono)', color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase' }}>{t.role}</p>
+        <section style={{ padding: '120px 48px', borderTop: '2px solid rgba(0,0,0,0.03)' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <SectionEyebrow>The Team</SectionEyebrow>
+            <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '3rem', color: 'var(--text)', marginBottom: '60px' }}>Professional Minds.</h2>
+            
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '32px' }}>
+              {team.map((t, i) => (
+                <div key={i} style={{ textAlign: 'center' }}>
+                  <div style={{ 
+                    width: '120px', 
+                    height: '120px', 
+                    borderRadius: '50%', 
+                    background: '#E0E5EC', 
+                    margin: '0 auto 24px', 
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontFamily: 'var(--font-outfit)',
+                    fontWeight: 800,
+                    fontSize: '2rem',
+                    color: 'var(--primary)',
+                    boxShadow: '8px 8px 16px rgba(163, 177, 198, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.7)'
+                  }}>
+                    {t.initials}
+                  </div>
+                  <h4 style={{ fontFamily: 'var(--font-outfit)', fontSize: '1.25rem', fontWeight: 700, color: 'var(--text)', marginBottom: '8px' }}>{t.name}</h4>
+                  <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', fontSize: '0.85rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>{t.role}</p>
                 </div>
-              </RevealWrapper>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
 

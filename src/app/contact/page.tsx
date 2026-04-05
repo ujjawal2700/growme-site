@@ -1,44 +1,87 @@
+'use client';
+
 import React from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import FloatingOrbs from '@/components/ui/FloatingOrbs';
 import SectionEyebrow from '@/components/ui/SectionEyebrow';
 import MultiStepForm from '@/components/contact/MultiStepForm';
+import { motion } from 'framer-motion';
 
 export default function ContactPage() {
   return (
-    <main>
+    <main style={{ background: 'var(--bg)', minHeight: '100vh' }}>
       <Navbar />
       
-      <div style={{ paddingTop: '160px', paddingBottom: '120px', position: 'relative', overflow: 'hidden' }}>
-        <FloatingOrbs color="rgba(91,60,245,0.2)" size={600} top="10%" left="-10%" />
-        <FloatingOrbs color="rgba(0,255,178,0.15)" size={400} bottom="10%" right="-5%" animationDelay="2s" />
-        
+      <div style={{ paddingTop: '160px', paddingBottom: '120px', position: 'relative' }}>
         <div style={{ padding: '0 48px', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
             <SectionEyebrow className="justify-center">Start a Project</SectionEyebrow>
-            <h1 style={{ fontFamily: 'var(--font-syne)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800 }}>
-              Let's build your<br/>
-              <span style={{ color: 'var(--accent)' }}>Digital Empire.</span>
+            <h1 style={{ 
+              fontFamily: 'var(--font-outfit)', 
+              fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', 
+              fontWeight: 800,
+              color: 'var(--text)',
+              letterSpacing: '-0.02em',
+              lineHeight: 1.1
+            }}>
+              Let&apos;s build your<br/>
+              <span style={{ color: 'var(--primary)' }}>Success Story.</span>
             </h1>
           </div>
 
           <MultiStepForm />
 
-          <div style={{ marginTop: '120px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '80px' }}>
-            <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.5rem', textAlign: 'center', marginBottom: '40px' }}>Alternative Ways to Reach Us</h3>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px' }}>
+          <div style={{ marginTop: '140px', borderTop: '2px solid rgba(0,0,0,0.03)', paddingTop: '100px' }}>
+            <h3 style={{ 
+              fontFamily: 'var(--font-outfit)', 
+              fontSize: '1.75rem', 
+              fontWeight: 700,
+              textAlign: 'center', 
+              marginBottom: '56px',
+              color: 'var(--text)'
+            }}>Alternative Ways to Reach Us</h3>
+            
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', 
+              gap: '32px' 
+            }}>
               {[
                 { icon: '💬', title: 'WhatsApp', detail: '+1 (555) 000-0000', link: 'https://wa.me/' },
-                { icon: '✉️', title: 'Email', detail: 'hello@growme.in', link: 'mailto:hello@growme.in' },
-                { icon: '📸', title: 'Instagram', detail: '@growme.in', link: '#' },
+                { icon: '✉️', title: 'Email', detail: 'hello@growme.agency', link: 'mailto:hello@growme.agency' },
+                { icon: '📸', title: 'Instagram', detail: '@growme.agency', link: '#' },
                 { icon: '💼', title: 'LinkedIn', detail: 'GrowMe Digital', link: '#' }
               ].map((m, i) => (
-                <a key={i} href={m.link} className="skeuo-raised group" style={{ padding: '32px 24px', textAlign: 'center', textDecoration: 'none', display: 'block' }}>
-                  <div style={{ fontSize: '2rem', marginBottom: '16px', transition: 'transform 0.3s' }} className="group-hover:scale-110">{m.icon}</div>
-                  <div style={{ fontFamily: 'var(--font-syne)', fontSize: '1.1rem', color: 'var(--white)', marginBottom: '8px' }}>{m.title}</div>
-                  <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem', color: 'var(--text-muted)' }}>{m.detail}</div>
-                </a>
+                <motion.a 
+                  key={i} 
+                  href={m.link} 
+                  whileHover={{ translateY: -5 }}
+                  style={{ 
+                    padding: '40px 32px', 
+                    textAlign: 'center', 
+                    textDecoration: 'none', 
+                    display: 'block',
+                    borderRadius: '24px',
+                    background: '#E0E5EC',
+                    boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
+                    transition: 'box-shadow 0.3s ease'
+                  }}
+                >
+                  <div style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{m.icon}</div>
+                  <div style={{ 
+                    fontFamily: 'var(--font-outfit)', 
+                    fontSize: '1.2rem', 
+                    fontWeight: 700,
+                    color: 'var(--text)', 
+                    marginBottom: '8px' 
+                  }}>{m.title}</div>
+                  <div style={{ 
+                    fontFamily: 'var(--font-inter)', 
+                    fontSize: '0.85rem', 
+                    fontWeight: 500,
+                    color: 'var(--text-muted)' 
+                  }}>{m.detail}</div>
+                </motion.a>
               ))}
             </div>
           </div>

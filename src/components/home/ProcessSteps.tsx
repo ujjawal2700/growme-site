@@ -1,81 +1,127 @@
 'use client';
 
 import React from 'react';
-import SectionEyebrow from '../ui/SectionEyebrow';
-import RevealWrapper from '../ui/RevealWrapper';
+import { motion } from 'framer-motion';
 
 const steps = [
-  { num: '01', title: 'Discovery', desc: 'We deep-dive into your goals, audience, and competition to shape a winning strategy.' },
-  { num: '02', title: 'Design', desc: 'Wireframes, prototypes, and pixel-perfect UI — all signed off before a line of code is written.' },
-  { num: '03', title: 'Build', desc: 'Agile sprints, clean code, rigorous QA. We build fast without breaking things.' },
-  { num: '04', title: 'Launch & Grow', desc: "Deployment, monitoring, marketing activation. We don't ship and disappear — we scale with you." },
+  { num: '01', title: 'Discovery', desc: 'We take the time to understand your unique business goals and who your customers are.' },
+  { num: '02', title: 'Design', desc: 'We create a clean, modern look for your project that reflects your professional brand.' },
+  { num: '03', title: 'Build', desc: 'Our team builds your site with the latest tech to ensure it is fast, secure, and reliable.' },
+  { num: '04', title: 'Launch & Grow', desc: "We help you go live and stay by your side to ensure your business keeps growing." },
 ];
 
 export default function ProcessSteps() {
-  const sectionStyle: React.CSSProperties = {
-    padding: '120px 48px',
-    position: 'relative',
-    overflow: 'hidden',
-  };
-
   return (
-    <section id="process" style={sectionStyle}>
-      <RevealWrapper>
-        <SectionEyebrow>How we work</SectionEyebrow>
-        <h2 style={{ fontFamily: 'var(--font-space-mono)', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.02em'}}>
-          From Idea to<br/>Launch in 4 Steps
-        </h2>
-      </RevealWrapper>
+    <section id="process" style={{ padding: '140px 48px', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          style={{ marginBottom: '100px', textAlign: 'center' }}
+        >
+          <div style={{
+            display: 'inline-block',
+            padding: '8px 20px',
+            borderRadius: '20px',
+            background: '#E0E5EC',
+            boxShadow: 'inset 4px 4px 8px rgba(163, 177, 198, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.5)',
+            fontFamily: 'var(--font-inter)',
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            color: 'var(--primary)',
+            letterSpacing: '0.1em',
+            marginBottom: '24px'
+          }}>HOW WE WORK</div>
 
-      <div className="process-grid" style={{ marginTop: '72px', position: 'relative' }}>
-        {/* Gradient Connecting Line */}
-        <div 
-          className="process-line"
-          style={{
-            position: 'absolute', top: '28px', left: '12%', right: '12%', height: '2px',
-            background: 'linear-gradient(90deg, transparent, var(--purple), var(--accent), transparent)',
-            zIndex: 0
-          }}
-        />
+          <h2 style={{ 
+            fontFamily: 'var(--font-outfit)', 
+            fontWeight: 800, 
+            fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
+            lineHeight: 1.1, 
+            color: 'var(--text)',
+            letterSpacing: '-0.02em',
+            maxWidth: '800px',
+            margin: '0 auto'
+          }}>
+            From <span style={{ color: 'var(--primary)' }}>Idea</span> to Success in 4 Simple Steps.
+          </h2>
+        </motion.div>
 
-        {steps.map((step, i) => (
-          <RevealWrapper key={i} delayIndex={i} className="process-step">
-            <div 
-              style={{
-                width: '56px', height: '56px', borderRadius: '50%',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                margin: '0 auto 24px', fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem',
-                position: 'relative', zIndex: 1, transition: 'all 0.3s'
-              }}
-              className="skeuo-raised step-circle group"
+        <div className="process-grid" style={{ position: 'relative' }}>
+          {/* THE SOFT CONNECTING LINE (Recessed) */}
+          <div 
+            style={{
+              position: 'absolute', top: '32px', left: '10%', right: '10%', height: '8px',
+              background: '#E0E5EC',
+              boxShadow: 'inset 2px 2px 4px rgba(163, 177, 198, 0.4), inset -2px -2px 4px rgba(255, 255, 255, 0.6)',
+              borderRadius: '4px',
+              zIndex: 0
+            }}
+            className="md-hide"
+          />
+
+          {steps.map((step, i) => (
+            <motion.div 
+              key={i} 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              style={{ textAlign: 'center', position: 'relative', zIndex: 1 }}
             >
-              <span className="text-[var(--purple-light)] group-hover:text-[var(--accent)] transition-colors inline-block">{step.num}</span>
-            </div>
-            <div style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: '1rem', marginBottom: '10px' }}>
-              {step.title}
-            </div>
-            <div style={{ fontSize: '0.78rem', color: 'var(--text-muted)', lineHeight: 1.65 }}>
-              {step.desc}
-            </div>
-          </RevealWrapper>
-        ))}
+              <div 
+                style={{
+                  width: '64px', height: '64px', borderRadius: '50%',
+                  background: '#E0E5EC',
+                  boxShadow: '6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  margin: '0 auto 28px', 
+                  fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '1.25rem',
+                  color: 'var(--primary)'
+                }}
+              >
+                {step.num}
+              </div>
+              <h3 style={{ 
+                fontFamily: 'var(--font-outfit)', 
+                fontWeight: 700, 
+                fontSize: '1.25rem', 
+                marginBottom: '16px',
+                color: 'var(--text)'
+              }}>
+                {step.title}
+              </h3>
+              <p style={{ 
+                fontSize: '0.95rem', 
+                color: 'var(--text-muted)', 
+                lineHeight: 1.6,
+                fontFamily: 'var(--font-inter)',
+                maxWidth: '240px',
+                margin: '0 auto' 
+              }}>
+                {step.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
 
       <style>{`
         .process-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
-        }
-        .process-step {
-          text-align: center;
-          padding: 0 20px;
+          gap: 40px;
         }
         
         @media (max-width: 768px) {
-          #process { padding: 80px 24px !important; }
-          .process-grid { grid-template-columns: 1fr 1fr; gap: 40px 20px; }
-          .process-line { display: none; }
+          .process-grid { grid-template-columns: 1fr; gap: 40px; }
+          .md-hide { display: none !important; }
+        }
+        @media (max-width: 1024px) {
+          section { padding: 100px 24px !important; }
+          .process-grid { grid-template-columns: 1fr 1fr; gap: 60px 40px; }
         }
       `}</style>
     </section>

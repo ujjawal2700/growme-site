@@ -6,6 +6,8 @@ import ServicesGrid from '@/components/home/ServicesGrid';
 import IndustriesScroll from '@/components/home/IndustriesScroll';
 import ProcessSteps from '@/components/home/ProcessSteps';
 import Testimonials from '@/components/home/Testimonials';
+import Showcase from '@/components/home/Showcase';
+import FAQ from '@/components/home/FAQ';
 import CTASection from '@/components/home/CTASection';
 
 export default function Home() {
@@ -15,9 +17,11 @@ export default function Home() {
       <Hero />
       <StatsTicker />
       <ServicesGrid />
+      <Showcase />
       <IndustriesScroll />
       <ProcessSteps />
       <Testimonials />
+      <FAQ />
       <CTASection />
       <Footer />
     </main>

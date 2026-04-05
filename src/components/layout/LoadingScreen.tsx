@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+const letters = "GROWME".split("");
+
 export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
   const [show, setShow] = useState(true);
@@ -10,6 +12,7 @@ export default function LoadingScreen() {
   useEffect(() => {
     document.body.style.overflow = 'hidden';
 
+    // Randomized but steady progress for a premium feel
     const interval = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
@@ -17,13 +20,13 @@ export default function LoadingScreen() {
           setTimeout(() => {
             setShow(false);
             document.body.style.overflow = 'unset';
-          }, 1200);
+          }, 800); 
           return 100;
         }
-        const step = Math.floor(Math.random() * 8) + 1;
-        return Math.min(prev + step, 100);
+        const step = prev < 30 ? 12 : prev < 70 ? 8 : 5;
+        return Math.min(prev + (Math.random() * step + 5), 100);
       });
-    }, 100);
+    }, 60);
 
     return () => {
       clearInterval(interval);
@@ -38,12 +41,14 @@ export default function LoadingScreen() {
           initial={{ opacity: 1 }}
           exit={{ 
             opacity: 0, 
-            transition: { duration: 0.8, ease: [0.7, 0, 0.3, 1] } 
+            scale: 1.1,
+            filter: 'blur(10px)',
+            transition: { duration: 1, ease: [0.7, 0, 0.3, 1] } 
           }}
           style={{
             position: 'fixed',
             inset: 0,
-            background: '#050505',
+            background: '#E0E5EC',
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
@@ -52,182 +57,198 @@ export default function LoadingScreen() {
             overflow: 'hidden'
           }}
         >
-          {/* AURORA BRAND BACKDROP */}
-          <motion.div 
-            animate={{ 
-              scale: [1, 1.2, 1],
-              opacity: [0.3, 0.5, 0.3],
-              rotate: [0, 90, 0]
-            }}
-            transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-            style={{
-              position: 'absolute',
-              width: '100vw',
-              height: '100vh',
-              background: 'radial-gradient(circle at center, rgba(0, 255, 255, 0.1) 0%, rgba(255, 0, 255, 0.05) 40%, transparent 70%)',
-              filter: 'blur(100px)',
-              pointerEvents: 'none',
-              zIndex: 0
-            }}
-          />
-
-          {/* SCANNING GRID */}
-          <div style={{
-            position: 'absolute',
-            inset: 0,
-            backgroundSize: '60px 60px',
-            backgroundImage: 'linear-gradient(to right, rgba(255,255,255,0.01) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.01) 1px, transparent 1px)',
-            maskImage: 'radial-gradient(circle at center, black, transparent)',
-            pointerEvents: 'none',
-            zIndex: 1
-          }} />
-
-          {/* MAIN BRAND MODULE */}
-          <div style={{ position: 'relative', marginBottom: '80px', zIndex: 2 }}>
-            
-            {/* BASE ENTITY (Hollow) */}
-            <div style={{
-              fontFamily: 'var(--font-syne)',
-              fontWeight: 800,
-              fontSize: '10rem',
-              color: 'rgba(255,255,255,0.03)',
-              letterSpacing: '-0.04em',
-              lineHeight: 1,
-              position: 'relative',
-              WebkitTextStroke: '2px rgba(255,255,255,0.08)'
-            }}>
-              G
-            </div>
-
-            {/* SYNC JITTER FILL LAYER (Motion Graphic) */}
+          {/* INTERACTIVE MESH GRADIENT BACKDROP */}
+          <div style={{ position: 'absolute', inset: 0, overflow: 'hidden', opacity: 0.4 }}>
             <motion.div 
               animate={{ 
-                x: progress < 100 ? [0, -1, 1, -1, 0] : 0, 
-                opacity: progress < 100 ? [0.8, 1, 0.8] : 1 
+                x: [-100, 100, -100], 
+                y: [-100, 50, -100],
+                scale: [1, 1.2, 1]
               }}
-              transition={{ duration: 0.1, repeat: Infinity, repeatType: 'reverse' }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
               style={{
                 position: 'absolute',
-                top: 0,
-                left: 0,
-                fontFamily: 'var(--font-syne)',
-                fontWeight: 800,
-                fontSize: '10rem',
-                color: 'var(--accent)',
-                letterSpacing: '-0.04em',
-                lineHeight: 1,
-                zIndex: 2,
-                // LIQUID SLOSH MASK
-                clipPath: `inset(${100 - progress}% 0 0 0)`, 
-                textShadow: '0 0 40px rgba(0, 255, 255, 0.6)'
+                top: '10%',
+                left: '10%',
+                width: '600px',
+                height: '600px',
+                background: 'radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%)',
+                filter: 'blur(60px)',
               }}
-            >
-              G
-              {/* DIAGONAL SHIMMER / GLINT */}
-              <motion.div 
-                animate={{ x: ['100%', '-100%'] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: 'linear' }}
-                style={{
-                  position: 'absolute',
-                  inset: 0,
-                  background: 'linear-gradient(115deg, transparent 40%, rgba(255,255,255,0.2) 50%, transparent 60%)',
-                  backgroundSize: '200% 100%',
-                  mixBlendMode: 'overlay',
-                  pointerEvents: 'none'
-                }}
-              />
-            </motion.div>
-
-            {/* THE BRAND DOT */}
+            />
             <motion.div 
-              initial={{ scale: 0 }}
               animate={{ 
-                scale: progress === 100 ? 1 : 0,
-                rotate: progress === 100 ? 0 : 45
+                x: [100, -100, 100], 
+                y: [100, -50, 100],
+                scale: [1.2, 1, 1.2]
               }}
-              transition={{ type: 'spring', stiffness: 260, damping: 20 }}
+              transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
               style={{
                 position: 'absolute',
-                right: '-10%',
-                bottom: '12%',
-                width: '1.4rem',
-                height: '1.4rem',
-                background: 'var(--accent)',
-                boxShadow: '0 0 30px var(--accent)',
-                zIndex: 4
+                bottom: '10%',
+                right: '10%',
+                width: '500px',
+                height: '500px',
+                background: 'radial-gradient(circle, rgba(96, 165, 250, 0.15) 0%, transparent 70%)',
+                filter: 'blur(50px)',
               }}
             />
           </div>
 
-          {/* UX HUD */}
-          <div style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '16px',
-            zIndex: 5
-          }}>
-            <div style={{
-              fontFamily: 'var(--font-space-mono)',
-              fontSize: '0.7rem',
-              color: 'rgba(255,255,255,0.3)',
-              textTransform: 'uppercase',
-              letterSpacing: '0.6em',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '16px'
-            }}>
-              <span style={{ color: 'var(--accent)' }}>PREPARING GROWTH</span>
-              <span style={{ minWidth: '45px', textAlign: 'right', color: '#fff', fontWeight: 800 }}>
-                {Math.min(progress, 100)}%
-              </span>
-            </div>
-            
-            <div style={{
-              width: '280px',
-              height: '1px',
-              background: 'rgba(255,255,255,0.06)',
-              position: 'relative'
-            }}>
-              <motion.div 
-                style={{
-                  position: 'absolute',
-                  top: '-1px',
-                  left: 0,
-                  height: '3px',
-                  width: `${progress}%`,
-                  background: 'var(--accent)',
-                  boxShadow: '0 0 20px var(--accent)'
-                }}
-              />
-            </div>
-          </div>
-
-          {/* TELEMETRY CORNER */}
+          {/* CHECKERED GRID OVERLAY */}
           <div style={{
             position: 'absolute',
-            bottom: '48px',
-            right: '48px',
-            fontFamily: 'var(--font-space-mono)',
-            fontSize: '0.55rem',
-            color: 'rgba(255,255,255,0.15)',
-            textAlign: 'right',
-            letterSpacing: '0.25em',
-            lineHeight: 2
-          }}>
-            {progress < 100 ? (
-              <motion.div animate={{ opacity: [0.4, 0.8, 0.4] }} transition={{ repeat: Infinity, duration: 0.8 }}>
-                [ SYSTEM_HANDSHAKE: RUNNING ]<br />
-                [ ASSET_SYNC: {progress}% ]<br />
-                [ RENDER_ENGINE: INITIALIZED ]
+            inset: 0,
+            backgroundImage: `linear-gradient(rgba(163, 177, 198, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(163, 177, 198, 0.05) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+            opacity: 0.5,
+          }} />
+
+          {/* MAIN CENTERPIECE */}
+          <div style={{ position: 'relative', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: 10 }}>
+            
+            {/* FLOATING GLASS PLATE */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              style={{
+                width: '240px',
+                height: '240px',
+                borderRadius: '60px',
+                background: '#E0E5EC',
+                boxShadow: '20px 20px 40px rgba(163, 177, 198, 0.5), -20px -20px 40px rgba(255, 255, 255, 0.8)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                position: 'relative'
+              }}
+            >
+              {/* THE MORPHING G LOGO */}
+              <motion.div
+                animate={{ 
+                  scale: [1, 1.05, 1],
+                }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                style={{
+                  width: '120px',
+                  height: '120px',
+                  position: 'relative'
+                }}
+              >
+                <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <filter id="glow">
+                      <feGaussianBlur stdDeviation="3" result="blur" />
+                      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                  </defs>
+                  
+                  {/* Signature G - Adjusted starting point for larger gap */}
+                  <motion.path 
+                    d="M82 35 A38 38 0 1 0 82 68 L82 52 H55"
+                    stroke="var(--primary)" 
+                    strokeWidth="9" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                    initial={{ pathLength: 0 }}
+                    animate={{ pathLength: progress / 100 }}
+                    transition={{ duration: 0.5 }}
+                    style={{ filter: 'url(#glow)' }}
+                  />
+                  
+                  {/* Outer Progress Ring */}
+                  <circle 
+                    cx="50" cy="50" r="48" 
+                    stroke="rgba(163, 177, 198, 0.1)" 
+                    strokeWidth="1" 
+                  />
+                  <motion.circle 
+                    cx="50" cy="50" r="48" 
+                    stroke="var(--primary)" 
+                    strokeWidth="2" 
+                    strokeLinecap="round"
+                    style={{
+                      pathLength: progress / 100,
+                      opacity: 0.3,
+                      transform: 'rotate(-90deg)',
+                      transformOrigin: '50% 50%'
+                    }}
+                  />
+                </svg>
               </motion.div>
-            ) : (
-              <div style={{ color: 'var(--accent)' }}>
-                [ SYNC COMPLETE: 0x8892 ]<br />
-                [ GROWTH READY: REDIRECTING ]<br />
-                [ BRIDGE OPEN: SUCCESS ]
-              </div>
-            )}
+
+              {/* FLOATING ORBS IN CORNERS */}
+              <motion.div 
+                animate={{ y: [-5, 5, -5] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                style={{
+                  position: 'absolute',
+                  top: '40px',
+                  right: '40px',
+                  width: '8px',
+                  height: '8px',
+                  borderRadius: '50%',
+                  background: 'var(--primary)',
+                  boxShadow: '0 0 10px rgba(59, 130, 246, 0.3)'
+                }}
+              />
+            </motion.div>
+
+            {/* STAGGERED TEXT REVEAL */}
+            <div style={{ marginTop: '50px', display: 'flex', gap: '8px' }}>
+              {letters.map((char, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
+                  animate={{ 
+                    opacity: progress > (index * 15) ? 1 : 0,
+                    y: progress > (index * 15) ? 0 : 10,
+                    filter: progress > (index * 15) ? 'blur(0px)' : 'blur(5px)'
+                  }}
+                  style={{
+                    fontFamily: 'var(--font-outfit)',
+                    fontSize: '1.4rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.2em',
+                    color: 'var(--text)',
+                    textShadow: '2px 2px 4px rgba(163, 177, 198, 0.3)'
+                  }}
+                >
+                  {char}
+                </motion.span>
+              ))}
+            </div>
+
+            {/* SUBTITLE REVEAL */}
+            <motion.div
+              animate={{ opacity: progress > 90 ? 1 : 0 }}
+              style={{
+                marginTop: '15px',
+                fontFamily: 'var(--font-inter)',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'var(--text-muted)',
+                letterSpacing: '0.4em',
+                textTransform: 'uppercase',
+                opacity: 0.6
+              }}
+            >
+              Excellence Redefined
+            </motion.div>
+
+            {/* PERCENTAGE INDICATOR */}
+            <div style={{
+              position: 'fixed',
+              bottom: '50px',
+              fontFamily: 'var(--font-outfit)',
+              fontSize: '4rem',
+              fontWeight: 900,
+              color: 'rgba(163, 177, 198, 0.1)',
+              userSelect: 'none',
+              pointerEvents: 'none'
+            }}>
+              {Math.floor(progress)}%
+            </div>
           </div>
         </motion.div>
       )}

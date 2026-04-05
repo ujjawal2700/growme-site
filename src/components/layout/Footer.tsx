@@ -6,143 +6,122 @@ import Link from 'next/link';
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
-  const containerStyle: React.CSSProperties = {
-    background: '#020204',
-    padding: '100px 48px 40px',
-    borderTop: '1px solid rgba(255,255,255,0.05)',
-    position: 'relative',
-    overflow: 'hidden',
-    minHeight: '400px',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'flex-end',
-  };
-
-  const backgroundTextStyle: React.CSSProperties = {
-    position: 'absolute',
-    bottom: '-0.1em',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    fontFamily: 'var(--font-syne)',
-    fontWeight: 900,
-    fontSize: '12vw', // Reduced further to 12vw to ensure the full "GROWME" never clips
-    lineHeight: 1,
-    color: 'rgba(255,255,255,0.15)', // Visible yet light/subtle
-    letterSpacing: '-0.03em',
-    textAlign: 'center',
-    whiteSpace: 'nowrap',
-    userSelect: 'none',
-    pointerEvents: 'none',
-    zIndex: 1,
-    width: '100%',
-  };
-
-  const contentWrapperStyle: React.CSSProperties = {
-    position: 'relative',
-    zIndex: 2, // Sits above the background text
-    width: '100%',
-  };
-
-  const sidebarStyle: React.CSSProperties = {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    flexWrap: 'wrap',
-    gap: '60px',
-    marginBottom: '80px',
-  };
-
-  const navColumnStyle: React.CSSProperties = {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: '12px',
-  };
-
-  const linkStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-space-mono)',
-    fontSize: '0.7rem',
-    color: 'rgba(255,255,255,0.4)',
-    textDecoration: 'none',
-    textTransform: 'uppercase',
-    letterSpacing: '0.12em',
-    transition: 'color 0.2s',
-  };
-
-  const headerLabelStyle: React.CSSProperties = {
-    ...linkStyle,
-    color: '#ffffff',
-    fontSize: '0.6rem',
-    marginBottom: '8px',
-    opacity: 0.8,
-  };
-
-  const footerBottomStyle: React.CSSProperties = {
-    paddingTop: '32px',
-    borderTop: '1px solid rgba(255,255,255,0.05)',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-    fontFamily: 'var(--font-space-mono)',
-    fontSize: '0.6rem',
-    color: 'rgba(255,255,255,0.2)',
-    textTransform: 'uppercase',
-    letterSpacing: '0.1em',
-  };
-
-  const handleLinkHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.currentTarget.style.color = '#ffffff';
-  };
-
-  const handleLinkLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.currentTarget.style.color = 'rgba(255,255,255,0.4)';
-  };
-
   return (
-    <footer style={containerStyle}>
-      {/* Massive Background Text */}
-      <div style={backgroundTextStyle}>GROWME</div>
+    <footer style={{
+      padding: '100px 48px 60px',
+      background: 'transparent',
+      position: 'relative',
+      overflow: 'hidden',
+    }}>
+      {/* MASSIVE BACKGROUND TEXT (Extremely Subtle) */}
+      <div style={{
+        position: 'absolute',
+        bottom: '-0.1em',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        fontFamily: 'var(--font-outfit)',
+        fontWeight: 900,
+        fontSize: '15vw',
+        lineHeight: 1,
+        color: 'rgba(0,0,0,0.02)',
+        letterSpacing: '-0.05em',
+        textAlign: 'center',
+        whiteSpace: 'nowrap',
+        userSelect: 'none',
+        pointerEvents: 'none',
+        zIndex: 0,
+        width: '100%',
+      }}>
+        GROWME
+      </div>
 
-      {/* Overlaid Content */}
-      <div style={contentWrapperStyle}>
-        <div style={sidebarStyle}>
-          <div style={navColumnStyle}>
-            <span style={headerLabelStyle}>Navigation</span>
-            <Link href="/about" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>The Agency</Link>
-            <Link href="/#services" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Capabilities</Link>
-            <Link href="/blog" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>The Journal</Link>
-            <Link href="/#testimonials" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Our Impact</Link>
+      <div style={{ position: 'relative', zIndex: 1, maxWidth: '1200px', margin: '0 auto' }}>
+        <div style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start',
+          flexWrap: 'wrap',
+          gap: '60px',
+          marginBottom: '80px',
+        }}>
+          {/* BRAND COLUMN */}
+          <div style={{ flex: '1 1 300px' }}>
+            <div style={{
+              fontFamily: 'var(--font-outfit)',
+              fontWeight: 800,
+              fontSize: '1.5rem',
+              color: 'var(--text)',
+              marginBottom: '24px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '4px'
+            }}>
+              GrowMe<span style={{ width: '6px', height: '6px', background: 'var(--primary)', borderRadius: '50%', marginTop: '6px' }} />
+            </div>
+            <p style={{
+              fontFamily: 'var(--font-inter)',
+              fontSize: '0.95rem',
+              color: 'var(--text-muted)',
+              lineHeight: 1.6,
+              maxWidth: '260px'
+            }}>
+              We build high-end digital experiences that help your business grow.
+            </p>
           </div>
 
-          <div style={navColumnStyle}>
-            <span style={headerLabelStyle}>Get in Touch</span>
-            <Link href="mailto:hello@growme.agency" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>hello@growme.agency</Link>
-            <Link href="/contact" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Submit Brief</Link>
-          </div>
+          {/* NAV COLUMNS */}
+          <div style={{ display: 'flex', gap: '80px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 700, fontSize: '0.9rem', color: 'var(--text)' }}>Agency</span>
+              <Link href="/about" style={linkStyle}>About Us</Link>
+              <Link href="/#services" style={linkStyle}>Services</Link>
+              <Link href="/contact" style={linkStyle}>Contact</Link>
+            </div>
 
-          <div style={navColumnStyle}>
-            <span style={headerLabelStyle}>Socials</span>
-            <a href="#" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Twitter / X</a>
-            <a href="#" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>LinkedIn</a>
-            <a href="#" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Instagram</a>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <span style={{ fontFamily: 'var(--font-outfit)', fontWeight: 700, fontSize: '0.9rem', color: 'var(--text)' }}>Socials</span>
+              <a href="#" style={linkStyle}>LinkedIn</a>
+              <a href="#" style={linkStyle}>Instagram</a>
+              <a href="#" style={linkStyle}>Twitter / X</a>
+            </div>
           </div>
         </div>
 
-        <div style={footerBottomStyle}>
-          <div>© {currentYear} GROWME DIGITAL LTD.</div>
+        {/* BOTTOM BAR */}
+        <div style={{
+          paddingTop: '40px',
+          borderTop: '1px solid rgba(0,0,0,0.05)',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+          gap: '20px',
+          fontFamily: 'var(--font-inter)',
+          fontSize: '0.8rem',
+          color: 'var(--text-muted)',
+          fontWeight: 500
+        }}>
+          <div>© {currentYear} GrowMe Digital Ltd.</div>
           <div style={{ display: 'flex', gap: '32px' }}>
-            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy</Link>
-            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>Terms</Link>
+            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy Policy</Link>
+            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>Terms of Service</Link>
           </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 768px) {
-          footer { padding: 60px 24px 32px !important; }
-          .sidebarStyle { gap: 40px !important; }
+          footer { padding: 60px 24px 40px !important; }
         }
       `}</style>
     </footer>
   );
 }
+
+const linkStyle: React.CSSProperties = {
+  fontFamily: 'var(--font-inter)',
+  fontSize: '0.9rem',
+  color: 'var(--text-muted)',
+  textDecoration: 'none',
+  transition: 'color 0.2s',
+};

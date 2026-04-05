@@ -1,78 +1,90 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export default function CustomCursor() {
   const cursorRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
-  const [isHovering, setIsHovering] = useState(false);
-
-  // Position state used for animation loop
-  const positionRef = useRef({ mx: 0, my: 0, rx: 0, ry: 0 });
 
   useEffect(() => {
+    if (typeof window === 'undefined') return;
     // Only run on non-touch devices
     if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
 
     const onMouseMove = (e: MouseEvent) => {
-      positionRef.current.mx = e.clientX;
-      positionRef.current.my = e.clientY;
-
+      const { clientX, clientY } = e;
+      
       if (cursorRef.current) {
-        // Offset by half width/height (12px / 2 = 6px)
-        cursorRef.current.style.transform = `translate(${e.clientX - 6}px, ${e.clientY - 6}px)`;
+        cursorRef.current.style.transform = `translate(${clientX - 5}px, ${clientY - 5}px)`;
       }
-    };
-
-    let animationFrameId: number;
-
-    const animateRing = () => {
-      const pos = positionRef.current;
-      pos.rx += (pos.mx - pos.rx - 20) * 0.12; // 20 is half of 40px width
-      pos.ry += (pos.my - pos.ry - 20) * 0.12;
 
       if (ringRef.current) {
-        ringRef.current.style.transform = `translate(${pos.rx}px, ${pos.ry}px)`;
+        // Simple lag effect via CSS transitions in globals.css
+        ringRef.current.style.transform = `translate(${clientX - 18}px, ${clientY - 18}px)`;
       }
-
-      animationFrameId = requestAnimationFrame(animateRing);
     };
 
-    const handleMouseOver = (e: MouseEvent) => {
+    const handleHover = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      if (
-        target.tagName.toLowerCase() === 'a' ||
+      const isInteractive = 
+        target.tagName.toLowerCase() === 'a' || 
         target.tagName.toLowerCase() === 'button' ||
-        target.closest('a') ||
-        target.closest('button') ||
-        target.closest('.service-card') ||
-        target.closest('.industry-card') ||
-        target.closest('.process-step')
-      ) {
-        setIsHovering(true);
-      } else {
-        setIsHovering(false);
+        target.closest('a') || 
+        target.closest('button');
+
+      if (ringRef.current) {
+        if (isInteractive) {
+          ringRef.current.classList.add('hovered');
+        } else {
+          ringRef.current.classList.remove('hovered');
+        }
       }
     };
 
-    document.addEventListener('mousemove', onMouseMove);
-    document.addEventListener('mouseover', handleMouseOver);
-    animateRing();
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseover', handleHover);
 
     return () => {
-      document.removeEventListener('mousemove', onMouseMove);
-      document.removeEventListener('mouseover', handleMouseOver);
-      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseover', handleHover);
     };
   }, []);
 
   return (
     <>
-      <div ref={cursorRef} className="cursor"></div>
-      <div
-        ref={ringRef}
-        className={`cursor-ring ${isHovering ? 'hovered' : ''}`}
-      ></div>
+      <div 
+        ref={cursorRef} 
+        className="cursor" 
+        style={{
+          width: '10px',
+          height: '10px',
+          background: 'var(--primary)',
+          borderRadius: '50%',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          pointerEvents: 'none',
+          zIndex: 9999,
+          boxShadow: '0 0 10px rgba(59, 130, 246, 0.2)',
+          transition: 'transform 0.08s ease-out'
+        }}
+      />
+      <div 
+        ref={ringRef} 
+        className="cursor-ring" 
+        style={{
+          width: '36px',
+          height: '36px',
+          border: '1px solid rgba(59, 130, 246, 0.2)',
+          borderRadius: '50%',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          pointerEvents: 'none',
+          zIndex: 9998,
+          transition: 'transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, background 0.3s ease'
+        }}
+      />
     </>
   );
 }
