@@ -1,26 +1,28 @@
 import type { Metadata } from 'next';
-import { League_Spartan, Poppins, Archivo } from 'next/font/google';
+import { DM_Sans, Space_Mono, Syne } from 'next/font/google';
 import '@/styles/globals.css';
 import CustomCursor from '@/components/layout/CustomCursor';
 
-const spartan = League_Spartan({
+import LoadingScreen from '@/components/layout/LoadingScreen';
+
+const dmSans = DM_Sans({
   subsets: ['latin'],
-  weight: ['400', '700', '800'],
-  variable: '--font-spartan',
+  weight: ['300', '400'],
+  variable: '--font-dm-sans',
   display: 'swap',
 });
 
-const poppins = Poppins({
+const spaceMono = Space_Mono({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
+  weight: ['400', '700'],
+  variable: '--font-space-mono',
   display: 'swap',
 });
 
-const archivo = Archivo({
+const syne = Syne({
   subsets: ['latin'],
-  weight: ['800', '900'],
-  variable: '--font-archivo',
+  weight: ['400', '600', '700', '800'],
+  variable: '--font-syne',
   display: 'swap',
 });
 
@@ -35,10 +37,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${spartan.variable} ${poppins.variable} ${archivo.variable} font-sans`}
+        className={`${dmSans.variable} ${spaceMono.variable} ${syne.variable} font-sans bg-[#050505]`}
       >
+        <LoadingScreen />
         <CustomCursor />
         {children}
       </body>

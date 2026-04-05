@@ -35,7 +35,7 @@ export default function AboutPage() {
         <section style={{ padding: '80px 48px', position: 'relative', textAlign: 'center' }}>
           <FloatingOrbs color="rgba(91,60,245,0.2)" size={500} top="-100px" left="50%" className="-translate-x-1/2" />
           <SectionEyebrow className="justify-center">About GrowMe</SectionEyebrow>
-          <h1 style={{ fontFamily: 'var(--font-spartan)', fontWeight: 800, fontSize: 'clamp(3rem, 6vw, 5rem)', position: 'relative', zIndex: 1 }}>
+          <h1 style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: 'clamp(3rem, 6vw, 5rem)', position: 'relative', zIndex: 1 }}>
             Building Tomorrow's<br/>
             <span style={{ color: 'var(--accent)' }}>Digital Infrastructure.</span><br/>
             Today.
@@ -47,13 +47,13 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
             <RevealWrapper>
               <div className="skeuo-raised" style={{ padding: '40px', height: '100%' }}>
-                <h3 style={{ fontFamily: 'var(--font-spartan)', fontSize: '1.5rem', marginBottom: '16px', color: 'var(--purple-light)' }}>Our Mission</h3>
+                <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.5rem', marginBottom: '16px', color: 'var(--purple-light)' }}>Our Mission</h3>
                 <p style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>To architect scalable, high-performance digital ecosystems that empower brands to dominate their respective markets. We engineer growth through ruthless optimization and breathtaking design.</p>
               </div>
             </RevealWrapper>
             <RevealWrapper delayIndex={1}>
               <div className="skeuo-pressed" style={{ padding: '40px', height: '100%' }}>
-                <h3 style={{ fontFamily: 'var(--font-spartan)', fontSize: '1.5rem', marginBottom: '16px', color: 'var(--accent)' }}>Our Vision</h3>
+                <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.5rem', marginBottom: '16px', color: 'var(--accent)' }}>Our Vision</h3>
                 <p style={{ color: 'var(--text-muted)', lineHeight: 1.7 }}>We envision a web where aesthetic brilliance and technical supremacy are inextricably linked, establishing a new baseline for what digital products can achieve for human interaction.</p>
               </div>
             </RevealWrapper>
@@ -65,8 +65,8 @@ export default function AboutPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', textAlign: 'center' }}>
             {[{v:'2024', l:'Founded'}, {v:'200+', l:'Projects'}, {v:'50+', l:'Clients'}, {v:'15+', l:'Experts'}].map((stat, i) => (
               <RevealWrapper key={i} delayIndex={i}>
-                <div style={{ fontFamily: 'var(--font-spartan)', fontSize: '3rem', fontWeight: 800, color: 'var(--white)' }}>{stat.v}</div>
-                <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.8rem', color: 'var(--accent)' }}>{stat.l}</div>
+                <div style={{ fontFamily: 'var(--font-syne)', fontSize: '3rem', fontWeight: 800, color: 'var(--white)' }}>{stat.v}</div>
+                <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem', color: 'var(--accent)' }}>{stat.l}</div>
               </RevealWrapper>
             ))}
           </div>
@@ -75,13 +75,13 @@ export default function AboutPage() {
         {/* CORE VALUES */}
         <section style={{ padding: '120px 48px' }}>
           <SectionEyebrow>Our DNA</SectionEyebrow>
-          <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '3rem', marginBottom: '60px' }}>Core Values</h2>
+          <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '3rem', marginBottom: '60px' }}>Core Values</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
             {values.map((v, i) => (
               <RevealWrapper key={i} delayIndex={i}>
                 <div className="skeuo-raised" style={{ padding: '32px' }}>
                   <div style={{ fontSize: '2rem', marginBottom: '16px' }}>{v.icon}</div>
-                  <h4 style={{ fontFamily: 'var(--font-spartan)', fontSize: '1.2rem', marginBottom: '8px' }}>{v.title}</h4>
+                  <h4 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.2rem', marginBottom: '8px' }}>{v.title}</h4>
                   <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', lineHeight: 1.6 }}>{v.desc}</p>
                 </div>
               </RevealWrapper>
@@ -92,14 +92,14 @@ export default function AboutPage() {
         {/* TEAM */}
         <section style={{ padding: '120px 48px', background: 'var(--gray)' }}>
           <SectionEyebrow>The Minds</SectionEyebrow>
-          <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '3rem', marginBottom: '60px' }}>Meet The Team</h2>
+          <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '3rem', marginBottom: '60px' }}>Meet The Team</h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '24px' }}>
             {team.map((t, i) => (
               <RevealWrapper key={i} delayIndex={i}>
                 <div className="skeuo-raised" style={{ padding: '32px', textAlign: 'center' }}>
                   <div style={{ width: '120px', height: '120px', borderRadius: '50%', background: t.grad, margin: '0 auto 24px', boxShadow: '0 8px 24px rgba(0,0,0,0.5)' }} />
-                  <h4 style={{ fontFamily: 'var(--font-spartan)', fontSize: '1.2rem', marginBottom: '4px' }}>{t.name}</h4>
-                  <p style={{ fontFamily: 'var(--font-poppins)', color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase' }}>{t.role}</p>
+                  <h4 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.2rem', marginBottom: '4px' }}>{t.name}</h4>
+                  <p style={{ fontFamily: 'var(--font-space-mono)', color: 'var(--text-muted)', fontSize: '0.7rem', textTransform: 'uppercase' }}>{t.role}</p>
                 </div>
               </RevealWrapper>
             ))}

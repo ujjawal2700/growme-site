@@ -24,7 +24,7 @@ export default function TermsPage() {
           <ul style={{ listStyle: 'none', borderLeft: '1px solid rgba(255,255,255,0.05)', paddingLeft: '20px' }}>
             {sections.map((s, i) => (
               <li key={i} style={{ marginBottom: '16px' }}>
-                <a href={`#section-${i}`} style={{ textDecoration: 'none', color: i === 0 ? 'var(--accent)' : 'var(--text-muted)', fontFamily: 'var(--font-poppins)', fontSize: '0.8rem', transition: 'color 0.2s' }}>
+                <a href={`#section-${i}`} style={{ textDecoration: 'none', color: i === 0 ? 'var(--accent)' : 'var(--text-muted)', fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem', transition: 'color 0.2s' }}>
                   0{i+1}. {s.title}
                 </a>
               </li>
@@ -34,20 +34,20 @@ export default function TermsPage() {
 
         {/* CONTENT */}
         <div style={{ flex: '1', maxWidth: '800px' }}>
-          <h1 style={{ fontFamily: 'var(--font-spartan)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '20px' }}>
+          <h1 style={{ fontFamily: 'var(--font-syne)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800, marginBottom: '20px' }}>
             Terms & Conditions
           </h1>
-          <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-poppins)', fontSize: '0.8rem', marginBottom: '60px' }}>
+          <p style={{ color: 'var(--text-muted)', fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem', marginBottom: '60px' }}>
             LAST UPDATED: APRIL 2026
           </p>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '60px' }}>
             {sections.map((s, i) => (
               <section key={i} id={`section-${i}`} className="skeuo-pressed" style={{ padding: '40px' }}>
-                <div style={{ fontFamily: 'var(--font-poppins)', color: 'var(--purple-light)', fontSize: '0.9rem', marginBottom: '16px' }}>
+                <div style={{ fontFamily: 'var(--font-space-mono)', color: 'var(--purple-light)', fontSize: '0.9rem', marginBottom: '16px' }}>
                   SECTION 0{i+1}
                 </div>
-                <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '1.8rem', fontWeight: 700, marginBottom: '24px' }}>
+                <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '1.8rem', fontWeight: 800, marginBottom: '24px' }}>
                   {s.title}
                 </h2>
                 <p style={{ color: 'var(--white)', fontSize: '1rem', lineHeight: 1.8, fontWeight: 300 }}>
@@ -58,8 +58,8 @@ export default function TermsPage() {
           </div>
 
           <div className="skeuo-raised" style={{ marginTop: '80px', padding: '40px', textAlign: 'center' }}>
-            <h3 style={{ fontFamily: 'var(--font-spartan)', fontSize: '1.5rem', marginBottom: '16px' }}>Questions about our terms?</h3>
-            <a href="/contact" style={{ color: 'var(--accent)', textDecoration: 'none', fontFamily: 'var(--font-poppins)', textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '0.05em' }}>
+            <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.5rem', marginBottom: '16px' }}>Questions about our terms?</h3>
+            <a href="/contact" style={{ color: 'var(--accent)', textDecoration: 'none', fontFamily: 'var(--font-space-mono)', textTransform: 'uppercase', fontSize: '0.8rem', letterSpacing: '0.05em' }}>
               Contact Legal Team →
             </a>
           </div>

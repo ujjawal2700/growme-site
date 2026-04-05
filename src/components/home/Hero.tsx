@@ -28,7 +28,7 @@ export default function Hero() {
   };
 
   const titleStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-spartan)',
+    fontFamily: 'var(--font-syne)',
     fontWeight: 800,
     fontSize: 'clamp(3.5rem, 8vw, 7.5rem)',
     lineHeight: 0.95,

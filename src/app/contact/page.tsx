@@ -17,7 +17,7 @@ export default function ContactPage() {
         <div style={{ padding: '0 48px', maxWidth: '1200px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
           <div style={{ textAlign: 'center', marginBottom: '80px' }}>
             <SectionEyebrow className="justify-center">Start a Project</SectionEyebrow>
-            <h1 style={{ fontFamily: 'var(--font-spartan)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800 }}>
+            <h1 style={{ fontFamily: 'var(--font-syne)', fontSize: 'clamp(2.5rem, 5vw, 4rem)', fontWeight: 800 }}>
               Let's build your<br/>
               <span style={{ color: 'var(--accent)' }}>Digital Empire.</span>
             </h1>
@@ -26,7 +26,7 @@ export default function ContactPage() {
           <MultiStepForm />
 
           <div style={{ marginTop: '120px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '80px' }}>
-            <h3 style={{ fontFamily: 'var(--font-spartan)', fontSize: '1.5rem', textAlign: 'center', marginBottom: '40px' }}>Alternative Ways to Reach Us</h3>
+            <h3 style={{ fontFamily: 'var(--font-syne)', fontSize: '1.5rem', textAlign: 'center', marginBottom: '40px' }}>Alternative Ways to Reach Us</h3>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '24px' }}>
               {[
                 { icon: '💬', title: 'WhatsApp', detail: '+1 (555) 000-0000', link: 'https://wa.me/' },
@@ -36,8 +36,8 @@ export default function ContactPage() {
               ].map((m, i) => (
                 <a key={i} href={m.link} className="skeuo-raised group" style={{ padding: '32px 24px', textAlign: 'center', textDecoration: 'none', display: 'block' }}>
                   <div style={{ fontSize: '2rem', marginBottom: '16px', transition: 'transform 0.3s' }} className="group-hover:scale-110">{m.icon}</div>
-                  <div style={{ fontFamily: 'var(--font-spartan)', fontSize: '1.1rem', color: 'var(--white)', marginBottom: '8px' }}>{m.title}</div>
-                  <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.8rem', color: 'var(--text-muted)' }}>{m.detail}</div>
+                  <div style={{ fontFamily: 'var(--font-syne)', fontSize: '1.1rem', color: 'var(--white)', marginBottom: '8px' }}>{m.title}</div>
+                  <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem', color: 'var(--text-muted)' }}>{m.detail}</div>
                 </a>
               ))}
             </div>

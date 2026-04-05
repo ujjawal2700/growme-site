@@ -93,7 +93,7 @@ export default function MultiStepForm() {
     return (
       <div className="skeuo-raised" style={{ padding: '80px 48px', textAlign: 'center', maxWidth: '600px', margin: '0 auto' }}>
         <div style={{ fontSize: '4rem', marginBottom: '24px' }}>🚀</div>
-        <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '2.5rem', marginBottom: '16px' }}>Project Launched!</h2>
+        <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '2.5rem', marginBottom: '16px' }}>Project Launched!</h2>
         <p style={{ color: 'var(--text-muted)' }}>We've received your request and our team will reach out within 24 hours to schedule a discovery call.</p>
         <Button variant="primary" href="/" style={{ marginTop: '40px' }}>Return Home</Button>
       </div>
@@ -122,7 +122,7 @@ export default function MultiStepForm() {
           <div style={{ flex: '0 0 150px' }} className="md-hidden">
             {[1,2,3,4,5].map(i => (
               <div key={i} style={{ 
-                fontFamily: 'var(--font-poppins)', 
+                fontFamily: 'var(--font-space-mono)', 
                 marginBottom: '24px',
                 color: step === i ? 'var(--accent)' : step > i ? 'var(--white)' : 'var(--text-muted)',
                 transition: 'color 0.3s',
@@ -165,17 +165,17 @@ export default function MultiStepForm() {
                 {/* Navigation Buttons */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '60px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '32px' }}>
                   {step > 1 ? (
-                    <button type="button" onClick={prevStep} className="skeuo-btn-outline" style={{ padding: '12px 24px', fontFamily: 'var(--font-poppins)', fontSize: '0.8rem', color: 'var(--white)' }}>
+                    <button type="button" onClick={prevStep} className="skeuo-btn-outline" style={{ padding: '12px 24px', fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem', color: 'var(--white)' }}>
                       ← Back
                     </button>
                   ) : <div></div>}
                   
                   {step < totalSteps ? (
-                    <button type="button" onClick={nextStep} className="skeuo-btn" style={{ padding: '12px 32px', fontFamily: 'var(--font-spartan)', fontWeight: 700, fontSize: '0.9rem', color: 'var(--white)' }}>
+                    <button type="button" onClick={nextStep} className="skeuo-btn" style={{ padding: '12px 32px', fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: '0.9rem', color: 'var(--white)' }}>
                       Continue →
                     </button>
                   ) : (
-                    <button type="submit" className="skeuo-btn" style={{ padding: '16px 40px', background: 'var(--accent)', color: 'var(--black)', fontFamily: 'var(--font-spartan)', fontWeight: 800, fontSize: '1rem', clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))' }}>
+                    <button type="submit" className="skeuo-btn" style={{ padding: '16px 40px', background: 'var(--accent)', color: 'var(--black)', fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: '1rem', clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px))' }}>
                       LAUNCH PROJECT 🚀
                     </button>
                   )}
@@ -200,11 +200,11 @@ function Step1() {
   const { register, formState: { errors } } = useFormContext<FormData>();
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '2rem', marginBottom: '8px' }}>Let's start with you</h2>
+      <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '2rem', marginBottom: '8px' }}>Let's start with you</h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>Tell us who we're speaking with.</p>
       
       <div style={{ marginBottom: '24px' }}>
-        <label style={{ display: 'block', fontFamily: 'var(--font-poppins)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Full Name *</label>
+        <label style={{ display: 'block', fontFamily: 'var(--font-space-mono)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Full Name *</label>
         <input 
           {...register('name')}
           className="skeuo-pressed focus:skeuo-input-active"
@@ -215,7 +215,7 @@ function Step1() {
       </div>
 
       <div style={{ marginBottom: '24px' }}>
-        <label style={{ display: 'block', fontFamily: 'var(--font-poppins)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Company / Organization</label>
+        <label style={{ display: 'block', fontFamily: 'var(--font-space-mono)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Company / Organization</label>
         <input 
           {...register('company')}
           className="skeuo-pressed focus:skeuo-input-active"
@@ -253,7 +253,7 @@ function Step2() {
 
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '2rem', marginBottom: '8px' }}>What do you need?</h2>
+      <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '2rem', marginBottom: '8px' }}>What do you need?</h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>Select all that apply.</p>
       
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
@@ -273,7 +273,7 @@ function Step2() {
               }}
             >
               <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{s.icon}</div>
-              <div style={{ fontFamily: 'var(--font-spartan)', fontSize: '0.9rem', color: isActive ? 'var(--accent)' : 'var(--white)' }}>{s.title}</div>
+              <div style={{ fontFamily: 'var(--font-syne)', fontSize: '0.9rem', color: isActive ? 'var(--accent)' : 'var(--white)' }}>{s.title}</div>
             </div>
           )
         })}
@@ -291,11 +291,11 @@ function Step3() {
 
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '2rem', marginBottom: '8px' }}>Tell us more</h2>
+      <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '2rem', marginBottom: '8px' }}>Tell us more</h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>The details of your mission.</p>
       
       <div style={{ marginBottom: '32px' }}>
-        <label style={{ display: 'block', fontFamily: 'var(--font-poppins)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Project Description *</label>
+        <label style={{ display: 'block', fontFamily: 'var(--font-space-mono)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Project Description *</label>
         <textarea 
           {...register('description')}
           className="skeuo-pressed focus:skeuo-input-active"
@@ -306,7 +306,7 @@ function Step3() {
       </div>
 
       <div style={{ marginBottom: '32px' }}>
-        <label style={{ display: 'block', fontFamily: 'var(--font-poppins)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '16px', textTransform: 'uppercase' }}>Estimated Budget *</label>
+        <label style={{ display: 'block', fontFamily: 'var(--font-space-mono)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '16px', textTransform: 'uppercase' }}>Estimated Budget *</label>
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           {['< $10k', '$10k - $50k', '$50k - $100k', '$100k+'].map(b => (
             <div 
@@ -315,7 +315,7 @@ function Step3() {
               className={budget === b ? "skeuo-pressed" : "skeuo-raised"}
               style={{
                 padding: '12px 20px', cursor: 'pointer',
-                fontFamily: 'var(--font-poppins)', fontSize: '0.8rem',
+                fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem',
                 border: budget === b ? '1px solid var(--accent)' : '1px solid rgba(255,255,255,0.05)',
                 color: budget === b ? 'var(--accent)' : 'var(--text-muted)'
               }}
@@ -328,7 +328,7 @@ function Step3() {
       </div>
 
       <div>
-        <label style={{ display: 'block', fontFamily: 'var(--font-poppins)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '16px', textTransform: 'uppercase' }}>Timeline *</label>
+        <label style={{ display: 'block', fontFamily: 'var(--font-space-mono)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '16px', textTransform: 'uppercase' }}>Timeline *</label>
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
           {['ASAP', '1-3 Months', '3-6 Months', 'Flexible'].map(t => (
             <div 
@@ -337,7 +337,7 @@ function Step3() {
               className={timeline === t ? "skeuo-pressed" : "skeuo-raised"}
               style={{
                 padding: '12px 20px', cursor: 'pointer',
-                fontFamily: 'var(--font-poppins)', fontSize: '0.8rem',
+                fontFamily: 'var(--font-space-mono)', fontSize: '0.8rem',
                 border: timeline === t ? '1px solid var(--accent)' : '1px solid rgba(255,255,255,0.05)',
                 color: timeline === t ? 'var(--accent)' : 'var(--text-muted)'
               }}
@@ -357,11 +357,11 @@ function Step4() {
   const { register, formState: { errors } } = useFormContext<FormData>();
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '2rem', marginBottom: '8px' }}>How to reach you?</h2>
+      <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '2rem', marginBottom: '8px' }}>How to reach you?</h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>Where should we send the proposal.</p>
       
       <div style={{ marginBottom: '24px' }}>
-        <label style={{ display: 'block', fontFamily: 'var(--font-poppins)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Email Address *</label>
+        <label style={{ display: 'block', fontFamily: 'var(--font-space-mono)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Email Address *</label>
         <input 
           type="email"
           {...register('email')}
@@ -373,7 +373,7 @@ function Step4() {
       </div>
 
       <div style={{ marginBottom: '24px' }}>
-        <label style={{ display: 'block', fontFamily: 'var(--font-poppins)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Phone / WhatsApp (Optional)</label>
+        <label style={{ display: 'block', fontFamily: 'var(--font-space-mono)', fontSize: '0.7rem', color: 'var(--accent)', marginBottom: '8px', textTransform: 'uppercase' }}>Phone / WhatsApp (Optional)</label>
         <input 
           {...register('phone')}
           className="skeuo-pressed focus:skeuo-input-active"
@@ -392,33 +392,33 @@ function Step5() {
 
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-poppins)', fontSize: '2rem', marginBottom: '8px' }}>Confirm & Send</h2>
+      <h2 style={{ fontFamily: 'var(--font-space-mono)', fontSize: '2rem', marginBottom: '8px' }}>Confirm & Send</h2>
       <p style={{ color: 'var(--text-muted)', marginBottom: '40px' }}>Review your request before launching.</p>
       
       <div className="skeuo-pressed" style={{ padding: '32px', border: '1px solid rgba(255,255,255,0.05)' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
           <div>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Name</div>
+            <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Name</div>
             <div style={{ color: 'var(--white)', fontSize: '1rem' }}>{data.name}</div>
           </div>
           <div>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Company</div>
+            <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Company</div>
             <div style={{ color: 'var(--white)', fontSize: '1rem' }}>{data.company || 'N/A'}</div>
           </div>
           <div style={{ gridColumn: '1 / -1' }}>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Services Needed</div>
+            <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Services Needed</div>
             <div style={{ color: 'var(--accent)', fontSize: '0.9rem' }}>{data.services?.join(', ')}</div>
           </div>
           <div>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Budget</div>
+            <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Budget</div>
             <div style={{ color: 'var(--white)', fontSize: '0.9rem' }}>{data.budget}</div>
           </div>
           <div>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Timeline</div>
+            <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Timeline</div>
             <div style={{ color: 'var(--white)', fontSize: '0.9rem' }}>{data.timeline}</div>
           </div>
           <div style={{ gridColumn: '1 / -1' }}>
-            <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Email</div>
+            <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Email</div>
             <div style={{ color: 'var(--purple-light)', fontSize: '1rem' }}>{data.email}</div>
           </div>
         </div>

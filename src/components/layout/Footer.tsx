@@ -1,125 +1,146 @@
+'use client';
+
 import React from 'react';
 import Link from 'next/link';
 
 export default function Footer() {
-  const footerStyle: React.CSSProperties = {
-    padding: '60px 48px 40px',
-    borderTop: '1px solid rgba(255, 255, 255, 0.06)',
-    background: 'var(--black)',
+  const currentYear = new Date().getFullYear();
+
+  const containerStyle: React.CSSProperties = {
+    background: '#020204',
+    padding: '100px 48px 40px',
+    borderTop: '1px solid rgba(255,255,255,0.05)',
+    position: 'relative',
+    overflow: 'hidden',
+    minHeight: '400px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',
   };
 
-  const topStyle: React.CSSProperties = {
+  const backgroundTextStyle: React.CSSProperties = {
+    position: 'absolute',
+    bottom: '-0.1em',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    fontFamily: 'var(--font-syne)',
+    fontWeight: 900,
+    fontSize: '12vw', // Reduced further to 12vw to ensure the full "GROWME" never clips
+    lineHeight: 1,
+    color: 'rgba(255,255,255,0.15)', // Visible yet light/subtle
+    letterSpacing: '-0.03em',
+    textAlign: 'center',
+    whiteSpace: 'nowrap',
+    userSelect: 'none',
+    pointerEvents: 'none',
+    zIndex: 1,
+    width: '100%',
+  };
+
+  const contentWrapperStyle: React.CSSProperties = {
+    position: 'relative',
+    zIndex: 2, // Sits above the background text
+    width: '100%',
+  };
+
+  const sidebarStyle: React.CSSProperties = {
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'flex-start',
-    marginBottom: '48px',
     flexWrap: 'wrap',
-    gap: '40px',
+    gap: '60px',
+    marginBottom: '80px',
   };
 
-  const logoStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-archivo)', fontWeight: 900,
-    fontSize: '2rem',
-    letterSpacing: '-0.02em',
-    color: 'var(--white)',
-    textDecoration: 'none',
-  };
-
-  const taglineStyle: React.CSSProperties = {
-    fontSize: '0.8rem',
-    color: 'var(--text-muted)',
-    marginTop: '6px',
-    fontStyle: 'italic',
-  };
-
-  const linksGridStyle: React.CSSProperties = {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(3, 140px)',
-    gap: '40px',
-  };
-
-  const colTitleStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-poppins)',
-    fontSize: '0.6rem',
-    letterSpacing: '0.15em',
-    textTransform: 'uppercase',
-    color: 'var(--accent)',
-    marginBottom: '16px',
+  const navColumnStyle: React.CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '12px',
   };
 
   const linkStyle: React.CSSProperties = {
-    display: 'block',
-    fontSize: '0.82rem',
-    color: 'var(--text-muted)',
+    fontFamily: 'var(--font-space-mono)',
+    fontSize: '0.7rem',
+    color: 'rgba(255,255,255,0.4)',
     textDecoration: 'none',
-    marginBottom: '8px',
+    textTransform: 'uppercase',
+    letterSpacing: '0.12em',
     transition: 'color 0.2s',
   };
 
-  const bottomStyle: React.CSSProperties = {
+  const headerLabelStyle: React.CSSProperties = {
+    ...linkStyle,
+    color: '#ffffff',
+    fontSize: '0.6rem',
+    marginBottom: '8px',
+    opacity: 0.8,
+  };
+
+  const footerBottomStyle: React.CSSProperties = {
+    paddingTop: '32px',
+    borderTop: '1px solid rgba(255,255,255,0.05)',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
-    paddingTop: '28px',
-    borderTop: '1px solid rgba(255, 255, 255, 0.05)',
-    flexWrap: 'wrap',
-    gap: '20px',
+    width: '100%',
+    fontFamily: 'var(--font-space-mono)',
+    fontSize: '0.6rem',
+    color: 'rgba(255,255,255,0.2)',
+    textTransform: 'uppercase',
+    letterSpacing: '0.1em',
+  };
+
+  const handleLinkHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = '#ffffff';
+  };
+
+  const handleLinkLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = 'rgba(255,255,255,0.4)';
   };
 
   return (
-    <footer style={footerStyle}>
-      <div style={topStyle}>
-        <div>
-          <Link href="/" style={logoStyle}>
-            GROW<span style={{ color: 'var(--purple)' }}>ME</span>
-          </Link>
-          <div style={taglineStyle}>Boost your social media & digital presence.</div>
-        </div>
-        
-        <div style={linksGridStyle} className="footer-links-grid">
-          <div>
-            <div style={colTitleStyle}>Services</div>
-            <Link href="#" style={linkStyle}>Web Development</Link>
-            <Link href="#" style={linkStyle}>App Development</Link>
-            <Link href="#" style={linkStyle}>AI Chatbots</Link>
-            <Link href="#" style={linkStyle}>UI/UX Design</Link>
-            <Link href="#" style={linkStyle}>Marketing</Link>
+    <footer style={containerStyle}>
+      {/* Massive Background Text */}
+      <div style={backgroundTextStyle}>GROWME</div>
+
+      {/* Overlaid Content */}
+      <div style={contentWrapperStyle}>
+        <div style={sidebarStyle}>
+          <div style={navColumnStyle}>
+            <span style={headerLabelStyle}>Navigation</span>
+            <Link href="/about" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>The Agency</Link>
+            <Link href="/#services" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Capabilities</Link>
+            <Link href="/blog" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>The Journal</Link>
+            <Link href="/#testimonials" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Our Impact</Link>
           </div>
-          <div>
-            <div style={colTitleStyle}>Industries</div>
-            <Link href="#" style={linkStyle}>E-Commerce</Link>
-            <Link href="#" style={linkStyle}>Quick Commerce</Link>
-            <Link href="#" style={linkStyle}>Food Delivery</Link>
-            <Link href="#" style={linkStyle}>Web3</Link>
-            <Link href="#" style={linkStyle}>SaaS</Link>
+
+          <div style={navColumnStyle}>
+            <span style={headerLabelStyle}>Get in Touch</span>
+            <Link href="mailto:hello@growme.agency" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>hello@growme.agency</Link>
+            <Link href="/contact" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Submit Brief</Link>
           </div>
-          <div>
-            <div style={colTitleStyle}>Company</div>
-            <Link href="/about" style={linkStyle}>About</Link>
-            <Link href="/#testimonials" style={linkStyle}>Work</Link>
-            <Link href="/blog" style={linkStyle}>Blog</Link>
-            <Link href="/contact" style={linkStyle}>Contact</Link>
-            <Link href="/terms" style={linkStyle}>Terms & Conditions</Link>
+
+          <div style={navColumnStyle}>
+            <span style={headerLabelStyle}>Socials</span>
+            <a href="#" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Twitter / X</a>
+            <a href="#" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>LinkedIn</a>
+            <a href="#" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Instagram</a>
           </div>
         </div>
-      </div>
-      
-      <div style={bottomStyle}>
-        <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', letterSpacing: '0.08em' }}>
-          © {new Date().getFullYear()} GrowMe · All Rights Reserved · growme.in
-        </div>
-        <div style={{ display: 'flex', gap: '20px' }}>
-          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Instagram</Link>
-          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>LinkedIn</Link>
-          <Link href="/contact" style={{...linkStyle, fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>WhatsApp</Link>
-          <Link href="#" style={{...linkStyle, fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', textTransform: 'uppercase', letterSpacing: '0.08em'}}>Twitter</Link>
+
+        <div style={footerBottomStyle}>
+          <div>© {currentYear} GROWME DIGITAL LTD.</div>
+          <div style={{ display: 'flex', gap: '32px' }}>
+            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>Privacy</Link>
+            <Link href="/terms" style={{ color: 'inherit', textDecoration: 'none' }}>Terms</Link>
+          </div>
         </div>
       </div>
 
       <style>{`
         @media (max-width: 768px) {
-          footer { padding: 48px 24px 32px !important; }
-          .footer-links-grid { grid-template-columns: 1fr 1fr !important; gap: 32px !important; }
+          footer { padding: 60px 24px 32px !important; }
+          .sidebarStyle { gap: 40px !important; }
         }
       `}</style>
     </footer>

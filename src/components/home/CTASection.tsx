@@ -18,7 +18,7 @@ export default function CTASection() {
   };
 
   const titleStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-spartan)',
+    fontFamily: 'var(--font-syne)',
     fontWeight: 800,
     fontSize: 'clamp(2.5rem, 6vw, 5.5rem)',
     lineHeight: 1,

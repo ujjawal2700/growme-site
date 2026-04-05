@@ -1,144 +1,295 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import Button from '../ui/Button';
+import { motion, useScroll, useSpring, useTransform, useMotionValue } from 'framer-motion';
+
+const navLinks = [
+  { name: 'About', href: '/about' },
+  { name: 'Services', href: '/#services' },
+  { name: 'Blog', href: '/blog' },
+  { name: 'Work', href: '/#work' },
+];
+
+function AuroraLink({ children, href, onHover }: { children: React.ReactNode; href: string; onHover: (e: React.MouseEvent) => void }) {
+  const [isHovered, setIsHovered] = React.useState(false);
+
+  return (
+    <Link 
+      href={href}
+      onMouseEnter={(e) => {
+        setIsHovered(true);
+        onHover(e);
+      }}
+      onMouseLeave={() => setIsHovered(false)}
+      style={{
+        position: 'relative',
+        padding: '16px 24px',
+        textDecoration: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: isHovered ? '#fff' : 'rgba(255,255,255,0.4)',
+        fontFamily: 'var(--font-space-mono)',
+        fontSize: '0.65rem',
+        textTransform: 'uppercase',
+        letterSpacing: '0.25em',
+        transition: 'color 0.4s cubic-bezier(0.2, 1, 0.3, 1)',
+        zIndex: 2
+      }}
+    >
+      <span style={{ position: 'relative' }}>
+        {children}
+        <motion.span 
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.6, ease: [0.2, 1, 0.3, 1] }}
+          style={{
+            position: 'absolute',
+            bottom: '-4px',
+            left: 0,
+            right: 0,
+            height: '1px',
+            background: 'var(--accent)',
+            transformOrigin: 'left',
+            boxShadow: '0 0 10px var(--accent)'
+          }}
+        />
+      </span>
+    </Link>
+  );
+}
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobile, setMobile] = useState(false);
+  const [time, setTime] = useState('');
+  const { scrollY } = useScroll();
+  const mouseX = useMotionValue(0);
+  const auroraX = useSpring(mouseX, { stiffness: 60, damping: 20 });
+  const [showAurora, setShowAurora] = useState(false);
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+    const checkMobile = () => setMobile(window.innerWidth < 1024);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    const updateTime = () => {
+      const now = new Date();
+      setTime(now.toISOString().slice(11, 19) + ' UTC');
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+      clearInterval(interval);
+    };
   }, []);
 
-  const navStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    zIndex: 100,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '20px 48px',
-    // Skeuomorphic dark bar header (not glassmorphism)
-    background: scrolled 
-      ? 'linear-gradient(180deg, #0a0a10 0%, #050508 100%)' 
-      : 'linear-gradient(180deg, rgba(10,10,16,0.95) 0%, transparent 100%)',
-    boxShadow: scrolled ? '0 4px 20px rgba(0,0,0,0.8), 0 1px 0 rgba(255,255,255,0.05) inset' : 'none',
-    borderBottom: scrolled ? '1px solid rgba(0,0,0,0.8)' : '1px solid transparent',
-    transition: 'background 0.3s, box-shadow 0.3s, border-color 0.3s',
-  };
+  const depth = useTransform(scrollY, [0, 5000], [0, 100]);
+  const displayDepth = useSpring(depth, { stiffness: 100, damping: 30 });
+  
+  const navHeight = mobile ? '60px' : '70px';
+  const navTop = useTransform(scrollY, [0, 100], ['2.5rem', '1.5rem']);
+  const springNavTop = useSpring(navTop, { stiffness: 200, damping: 25 });
 
-  const logoStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-archivo)', fontWeight: 900,
-    fontSize: '1.4rem',
-    letterSpacing: '-0.02em',
-    textDecoration: 'none',
-    color: 'var(--white)',
-  };
-
-  const linkStyle: React.CSSProperties = {
-    fontFamily: 'var(--font-poppins)',
-    fontSize: '0.72rem',
-    color: 'var(--text-muted)',
-    textDecoration: 'none',
-    letterSpacing: '0.08em',
-    textTransform: 'uppercase',
-    transition: 'color 0.2s',
-  };
-
-  const linksContainerStyle: React.CSSProperties = {
-    display: typeof window !== 'undefined' && window.matchMedia('(max-width: 768px)').matches ? 'none' : 'flex',
-    gap: '36px',
-    listStyle: 'none',
-    alignItems: 'center',
-  };
-
-  // Mobile navigation overlay
-  const mobileOverlayStyle: React.CSSProperties = {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    background: 'var(--black)',
-    zIndex: 99,
-    display: mobileMenuOpen ? 'flex' : 'none',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: '40px',
-    padding: '24px',
-  };
-
-  const handleLinkHover = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.currentTarget.style.color = 'var(--white)';
-  };
-  const handleLinkLeave = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.currentTarget.style.color = 'var(--text-muted)';
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (mobile) return;
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set(e.clientX - rect.left);
   };
 
   return (
     <>
-      <nav style={navStyle}>
-        <Link href="/" style={logoStyle}>
-          GROW<span style={{ color: 'var(--purple)' }}>ME</span>
-          <em style={{ color: 'var(--accent)', fontStyle: 'normal' }}>.</em>
-        </Link>
-        
-        <ul style={linksContainerStyle} className="desktop-links">
-          <li><Link href="/about" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>About</Link></li>
-          <li><Link href="/#services" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Services</Link></li>
-          <li><Link href="/blog" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Blog</Link></li>
-          <li><Link href="/#testimonials" style={linkStyle} onMouseEnter={handleLinkHover} onMouseLeave={handleLinkLeave}>Work</Link></li>
-        </ul>
-
-        <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-          <Button variant="outline" href="/contact" style={{ padding: '10px 22px' }}>
-            Start a Project
-          </Button>
-
-          {/* Mobile hamburger toggle (Hidden on desktop via css class ideally, but using simple inline styles for quick implementation) */}
-          <button 
-            className="md-hidden"
-            style={{ 
-              display: 'block', 
-              background: 'none', 
-              border: 'none', 
-              color: 'var(--white)', 
-              fontSize: '1.5rem' 
+      <motion.nav
+        onMouseEnter={() => setShowAurora(true)}
+        onMouseLeave={() => setShowAurora(false)}
+        onMouseMove={handleMouseMove}
+        style={{
+          position: 'fixed',
+          left: '50%',
+          x: '-50%',
+          top: springNavTop,
+          width: '95vw',
+          maxWidth: '1400px',
+          height: navHeight,
+          zIndex: 1000,
+          background: 'rgba(255, 255, 255, 0.02)',
+          backdropFilter: 'blur(40px)',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          padding: mobile ? '0 24px' : '0 40px',
+          borderRadius: '2px', 
+          border: 'none',
+          boxShadow: '0 20px 80px rgba(0,0,0,0.6)',
+          overflow: 'hidden'
+        }}
+      >
+        {/* AURORA LIGHT BLOB */}
+        {!mobile && (
+          <motion.div 
+            style={{
+              position: 'absolute',
+              top: '-50%',
+              left: auroraX,
+              width: '300px',
+              height: '200%',
+              x: '-50%',
+              background: 'radial-gradient(circle, rgba(0, 255, 255, 0.08) 0%, rgba(255, 0, 255, 0.03) 50%, transparent 100%)',
+              opacity: showAurora ? 1 : 0,
+              pointerEvents: 'none',
+              zIndex: 1,
+              filter: 'blur(40px)',
+              transition: 'opacity 0.8s ease'
             }}
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          >
-            {mobileMenuOpen ? '✕' : '☰'}
-          </button>
+          />
+        )}
+
+        {/* LEFT HUD: IDENTITY & DEPTH */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '32px', zIndex: 2 }}>
+          <Link href="/" style={{ textDecoration: 'none' }}>
+            <div style={{ 
+              fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: mobile ? '1.2rem' : '1.4rem', 
+              color: '#fff', letterSpacing: '-0.04em' 
+            }}>
+              G<span style={{ color: 'var(--accent)' }}>.</span>
+            </div>
+          </Link>
+          {!mobile && (
+            <div style={{ 
+              fontFamily: 'var(--font-space-mono)', fontSize: '0.45rem', 
+              color: 'rgba(255,255,255,0.2)', letterSpacing: '0.2em', 
+              textTransform: 'uppercase', marginTop: '4px' 
+            }}>
+              SYS_STAT: PASSIVE // D-Z: {displayDepth.get().toFixed(2)}
+            </div>
+          )}
         </div>
-      </nav>
 
-      {/* Mobile Menu */}
-      <div style={mobileOverlayStyle}>
-        <Link href="/about" onClick={() => setMobileMenuOpen(false)} style={{...linkStyle, fontSize: '1.2rem', color: 'var(--white)'}}>About</Link>
-        <Link href="/#services" onClick={() => setMobileMenuOpen(false)} style={{...linkStyle, fontSize: '1.2rem', color: 'var(--white)'}}>Services</Link>
-        <Link href="/blog" onClick={() => setMobileMenuOpen(false)} style={{...linkStyle, fontSize: '1.2rem', color: 'var(--white)'}}>Blog</Link>
-        <Link href="/#testimonials" onClick={() => setMobileMenuOpen(false)} style={{...linkStyle, fontSize: '1.2rem', color: 'var(--white)'}}>Work</Link>
-        <Link href="/contact" onClick={() => setMobileMenuOpen(false)} style={{...linkStyle, fontSize: '1.2rem', color: 'var(--accent)'}}>Start a Project</Link>
-      </div>
+        {/* CENTER: NAVIGATION (Desktop Only) */}
+        {!mobile && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', zIndex: 2 }}>
+            {navLinks.map((link) => (
+              <AuroraLink 
+                key={link.name} 
+                href={link.href}
+                onHover={(e) => mouseX.set(e.clientX - (e.currentTarget.parentElement?.parentElement?.getBoundingClientRect().left || 0))}
+              >
+                {link.name}
+              </AuroraLink>
+            ))}
+          </div>
+        )}
 
-      <style>{`
-        @media (min-width: 769px) {
-          .md-hidden { display: none !important; }
-        }
-        @media (max-width: 768px) {
-          .desktop-links { display: none !important; }
-          nav { padding: 16px 24px !important; }
-        }
-      `}</style>
+        {/* RIGHT HUD: TIME & ACTION */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: mobile ? '16px' : '40px', zIndex: 2 }}>
+          {!mobile && (
+            <div style={{ 
+              fontFamily: 'var(--font-space-mono)', fontSize: '0.45rem', 
+              color: 'rgba(255,255,255,0.2)', letterSpacing: '0.2em', textTransform: 'uppercase' 
+            }}>
+              {time}
+            </div>
+          )}
+
+          {mobile ? (
+            <button 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              style={{
+                background: 'none',
+                border: 'none',
+                color: '#fff',
+                fontSize: '1.2rem',
+                cursor: 'pointer',
+                padding: '8px'
+              }}
+            >
+              {isMenuOpen ? '✕' : '☰'}
+            </button>
+          ) : (
+            <Link href="/contact" style={{ textDecoration: 'none' }}>
+              <motion.div
+                whileHover={{ letterSpacing: '0.4em', color: '#fff' }}
+                style={{
+                  color: 'rgba(255,255,255,0.8)',
+                  fontSize: '0.65rem',
+                  fontFamily: 'var(--font-space-mono)',
+                  fontWeight: 800,
+                  textTransform: 'uppercase',
+                  letterSpacing: '0.2em',
+                  transition: 'all 0.4s cubic-bezier(0.2, 1, 0.3, 1)'
+                }}
+              >
+                Initiate Project
+              </motion.div>
+            </Link>
+          )}
+        </div>
+      </motion.nav>
+
+      {/* MOBILE MENU OVERLAY */}
+      <motion.div
+        initial={false}
+        animate={{ 
+          height: isMenuOpen ? 'auto' : 0,
+          opacity: isMenuOpen ? 1 : 0
+        }}
+        style={{
+          position: 'fixed',
+          top: 'calc(2.5rem + 70px)', // Rough estimate, fixed below with scrollY integration if needed
+          left: '50%',
+          transform: 'translateX(-50%)',
+          width: '95vw',
+          maxWidth: '1400px',
+          background: 'rgba(5, 5, 5, 0.95)',
+          backdropFilter: 'blur(30px)',
+          zIndex: 999,
+          borderRadius: '2px',
+          overflow: 'hidden',
+          display: mobile ? 'block' : 'none',
+          boxShadow: '0 40px 100px rgba(0,0,0,0.8)',
+          border: '1px solid rgba(255,255,255,0.05)'
+        }}
+      >
+        <div style={{ padding: '32px 24px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
+          {navLinks.map((link) => (
+            <Link 
+              key={link.name} 
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              style={{
+                fontFamily: 'var(--font-space-mono)',
+                fontSize: '0.8rem',
+                color: '#fff',
+                textDecoration: 'none',
+                letterSpacing: '0.3em',
+                textTransform: 'uppercase'
+              }}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <div style={{ height: '1px', background: 'rgba(255,255,255,0.1)', margin: '8px 0' }} />
+          <Link 
+            href="/contact"
+            onClick={() => setIsMenuOpen(false)}
+            style={{
+              fontFamily: 'var(--font-space-mono)',
+              fontSize: '0.8rem',
+              color: 'var(--accent)',
+              textDecoration: 'none',
+              letterSpacing: '0.3em',
+              textTransform: 'uppercase',
+              fontWeight: 800
+            }}
+          >
+            [ START PROJECT ]
+          </Link>
+        </div>
+      </motion.div>
     </>
   );
 }

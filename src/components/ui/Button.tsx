@@ -32,8 +32,8 @@ export default function Button({
       case 'primary':
         return {
           ...baseStyle,
-          fontFamily: 'var(--font-spartan)',
-          fontWeight: 700,
+          fontFamily: 'var(--font-syne)',
+          fontWeight: 800,
           fontSize: '0.9rem',
           letterSpacing: '0.04em',
           textTransform: 'uppercase',
@@ -53,7 +53,7 @@ export default function Button({
       case 'outline':
         return {
           ...baseStyle,
-          fontFamily: 'var(--font-poppins)',
+          fontFamily: 'var(--font-space-mono)',
           fontWeight: 400,
           fontSize: '0.75rem',
           letterSpacing: '0.08em',
@@ -68,7 +68,7 @@ export default function Button({
       case 'ghost':
         return {
           ...baseStyle,
-          fontFamily: 'var(--font-poppins)',
+          fontFamily: 'var(--font-space-mono)',
           fontSize: '0.75rem',
           letterSpacing: '0.08em',
           textTransform: 'uppercase',

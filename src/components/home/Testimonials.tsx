@@ -39,7 +39,7 @@ export default function Testimonials() {
     <section id="testimonials" style={sectionStyle}>
       <RevealWrapper>
         <SectionEyebrow>Client Stories</SectionEyebrow>
-        <h2 style={{ fontFamily: 'var(--font-poppins)', fontWeight: 700, fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.02em'}}>
+        <h2 style={{ fontFamily: 'var(--font-space-mono)', fontWeight: 800, fontSize: 'clamp(2rem, 4vw, 3.5rem)', lineHeight: 1.05, letterSpacing: '-0.02em'}}>
           What Clients<br/>Say
         </h2>
       </RevealWrapper>
@@ -73,13 +73,13 @@ export default function Testimonials() {
                   width: '42px', height: '42px', borderRadius: '50%',
                   background: 'linear-gradient(135deg, var(--purple), var(--accent))',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontFamily: 'var(--font-spartan)', fontWeight: 800, fontSize: '0.85rem'
+                  fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: '0.85rem'
                 }} className="skeuo-raised">
                   {t.initials}
                 </div>
                 <div>
-                  <div style={{ fontFamily: 'var(--font-spartan)', fontWeight: 700, fontSize: '0.9rem' }}>{t.reviewer}</div>
-                  <div style={{ fontFamily: 'var(--font-poppins)', fontSize: '0.6rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '2px' }}>
+                  <div style={{ fontFamily: 'var(--font-syne)', fontWeight: 800, fontSize: '0.9rem' }}>{t.reviewer}</div>
+                  <div style={{ fontFamily: 'var(--font-space-mono)', fontSize: '0.6rem', color: 'var(--text-muted)', letterSpacing: '0.08em', textTransform: 'uppercase', marginTop: '2px' }}>
                     {t.role}
                   </div>
                 </div>
