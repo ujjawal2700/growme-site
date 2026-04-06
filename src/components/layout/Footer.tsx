@@ -56,7 +56,6 @@ export default function Footer() {
               alignItems: 'center',
               gap: '10px'
             }}>
-              <img src="/growme-logo.png" alt="GrowMe Logo" style={{ height: '36px', width: 'auto', display: 'block' }} />
               GrowMe
             </div>
             <p style={{

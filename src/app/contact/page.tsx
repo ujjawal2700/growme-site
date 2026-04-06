@@ -62,8 +62,8 @@ export default function ContactPage() {
                     textDecoration: 'none', 
                     display: 'block',
                     borderRadius: '24px',
-                    background: '#E0E5EC',
-                    boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
+                    background: '#F8FAFC',
+                    boxShadow: '9px 9px 16px rgba(203, 213, 225, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
                     transition: 'box-shadow 0.3s ease'
                   }}
                 >

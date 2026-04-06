@@ -58,7 +58,7 @@ export default function LoadingScreen() {
           style={{
             position: 'fixed',
             inset: 0,
-            background: '#E0E5EC',
+            background: '#F8FAFC',
             zIndex: 9999,
             display: 'flex',
             flexDirection: 'column',
@@ -109,7 +109,7 @@ export default function LoadingScreen() {
           <div style={{
             position: 'absolute',
             inset: 0,
-            backgroundImage: `linear-gradient(rgba(163, 177, 198, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(163, 177, 198, 0.05) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(203, 213, 225, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(203, 213, 225, 0.05) 1px, transparent 1px)`,
             backgroundSize: '40px 40px',
             opacity: 0.5,
           }} />
@@ -125,8 +125,8 @@ export default function LoadingScreen() {
                 width: '240px',
                 height: '240px',
                 borderRadius: '60px',
-                background: '#E0E5EC',
-                boxShadow: '20px 20px 40px rgba(163, 177, 198, 0.5), -20px -20px 40px rgba(255, 255, 255, 0.8)',
+                background: '#F8FAFC',
+                boxShadow: '20px 20px 40px rgba(203, 213, 225, 0.5), -20px -20px 40px rgba(255, 255, 255, 0.8)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -169,7 +169,7 @@ export default function LoadingScreen() {
                   {/* Outer Progress Ring */}
                   <circle 
                     cx="50" cy="50" r="48" 
-                    stroke="rgba(163, 177, 198, 0.1)" 
+                    stroke="rgba(203, 213, 225, 0.1)" 
                     strokeWidth="1" 
                   />
                   <motion.circle 
@@ -221,7 +221,7 @@ export default function LoadingScreen() {
                     fontWeight: 800,
                     letterSpacing: '0.2em',
                     color: 'var(--text)',
-                    textShadow: '2px 2px 4px rgba(163, 177, 198, 0.3)'
+                    textShadow: '2px 2px 4px rgba(203, 213, 225, 0.3)'
                   }}
                 >
                   {char}
@@ -253,7 +253,7 @@ export default function LoadingScreen() {
               fontFamily: 'var(--font-outfit)',
               fontSize: '4rem',
               fontWeight: 900,
-              color: 'rgba(163, 177, 198, 0.1)',
+              color: 'rgba(203, 213, 225, 0.1)',
               userSelect: 'none',
               pointerEvents: 'none'
             }}>

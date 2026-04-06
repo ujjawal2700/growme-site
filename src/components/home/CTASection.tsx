@@ -61,8 +61,8 @@ export default function CTASection() {
            style={{
              padding: '80px 40px',
              borderRadius: '48px',
-             background: '#E0E5EC',
-             boxShadow: '12px 12px 24px rgba(163, 177, 198, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.8)',
+             background: '#F8FAFC',
+             boxShadow: '12px 12px 24px rgba(203, 213, 225, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.8)',
              textAlign: 'center',
              position: 'relative',
              zIndex: 1

@@ -228,7 +228,7 @@ export default function ServicesGrid() {
           style={{ marginBottom: 'clamp(32px, 6vw, 64px)', textAlign: 'center' }}
         >
           <div style={{
-            display: 'inline-block', padding: '6px 18px', borderRadius: '20px', background: '#E0E5EC',
+            display: 'inline-block', padding: '6px 18px', borderRadius: '20px', background: '#F8FAFC',
             boxShadow: 'inset 4px 4px 8px rgba(163,177,198,0.3), inset -4px -4px 8px rgba(255,255,255,0.5)',
             fontFamily: 'var(--font-inter)', fontSize: '0.72rem', fontWeight: 600, color: 'var(--primary)',
             letterSpacing: '0.12em', textTransform: 'uppercase' as const, marginBottom: '16px',

@@ -88,7 +88,7 @@ export default function MultiStepForm() {
             particleCount: 150,
             spread: 80,
             origin: { y: 0.6 },
-            colors: ['#3B82F6', '#60A5FA', '#E0E5EC']
+            colors: ['#3B82F6', '#60A5FA', '#F8FAFC']
           });
         });
       } else {
@@ -125,8 +125,8 @@ export default function MultiStepForm() {
         maxWidth: '700px', 
         margin: '0 auto',
         borderRadius: '48px',
-        background: '#E0E5EC',
-        boxShadow: '12px 12px 24px rgba(163, 177, 198, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.8)',
+        background: '#F8FAFC',
+        boxShadow: '12px 12px 24px rgba(203, 213, 225, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.8)',
       }}>
         <div style={{ fontSize: '4rem', marginBottom: '24px' }}>✨</div>
         <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: 'clamp(2rem, 8vw, 3rem)', color: 'var(--text)', marginBottom: '16px' }}>Project Received!</h2>
@@ -159,7 +159,7 @@ export default function MultiStepForm() {
             background: 'rgba(255,255,255,0.4)',
             padding: '12px 20px',
             borderRadius: '24px',
-            boxShadow: '4px 4px 10px rgba(163, 177, 198, 0.2)'
+            boxShadow: '4px 4px 10px rgba(203, 213, 225, 0.2)'
           }}>
             <div style={{
               width: '44px', height: '44px', borderRadius: '50%',
@@ -188,8 +188,8 @@ export default function MultiStepForm() {
         <div className="md-hidden" style={{ 
           width: '100%', 
           height: '14px', 
-          background: '#E0E5EC', 
-          boxShadow: 'inset 4px 4px 8px rgba(163, 177, 198, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)',
+          background: '#F8FAFC', 
+          boxShadow: 'inset 4px 4px 8px rgba(203, 213, 225, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)',
           marginBottom: '56px', 
           borderRadius: '10px',
           position: 'relative', 
@@ -224,13 +224,13 @@ export default function MultiStepForm() {
               }}>
                 <div style={{
                   width: '40px', height: '40px', borderRadius: '50%',
-                  background: '#E0E5EC',
+                  background: '#F8FAFC',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   fontSize: '0.9rem',
                   fontWeight: 700,
                   boxShadow: step === i 
-                    ? 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
-                    : '4px 4px 8px rgba(163, 177, 198, 0.6), -4px -4px 8px rgba(255, 255, 255, 0.8)',
+                    ? 'inset 4px 4px 8px rgba(203, 213, 225, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
+                    : '4px 4px 8px rgba(203, 213, 225, 0.6), -4px -4px 8px rgba(255, 255, 255, 0.8)',
                   color: step === i ? 'var(--primary)' : 'inherit',
                   transition: 'all 0.3s ease'
                 }}>{i}</div>
@@ -244,9 +244,9 @@ export default function MultiStepForm() {
             flex: '1', 
             position: 'relative', 
             minHeight: 'clamp(400px, 60vh, 600px)',
-            background: '#E0E5EC',
+            background: '#F8FAFC',
             borderRadius: '40px',
-            boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
+            boxShadow: '9px 9px 16px rgba(203, 213, 225, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
             display: 'flex',
             flexDirection: 'column'
           }}>
@@ -324,10 +324,10 @@ function Step1() {
           style={{ 
             width: '100%', 
             padding: '20px', 
-            background: '#E0E5EC',
+            background: '#F8FAFC',
             borderRadius: '16px',
             border: 'none',
-            boxShadow: 'inset 5px 5px 10px rgba(163, 177, 198, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
+            boxShadow: 'inset 5px 5px 10px rgba(203, 213, 225, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
             color: 'var(--text)', 
             outline: 'none', 
             fontFamily: 'var(--font-inter)' 
@@ -344,10 +344,10 @@ function Step1() {
           style={{ 
             width: '100%', 
             padding: '20px', 
-            background: '#E0E5EC',
+            background: '#F8FAFC',
             borderRadius: '16px',
             border: 'none',
-            boxShadow: 'inset 5px 5px 10px rgba(163, 177, 198, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
+            boxShadow: 'inset 5px 5px 10px rgba(203, 213, 225, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
             color: 'var(--text)', 
             outline: 'none', 
             fontFamily: 'var(--font-inter)' 
@@ -365,12 +365,12 @@ function Step2() {
   const selectedServices = watch('services') || [];
   
   const servicesList = [
-    { id: 'web', icon: '💻', title: 'Web Development' },
-    { id: 'app', icon: '📱', title: 'App Development' },
-    { id: 'ai', icon: '🤖', title: 'AI & Automation' },
-    { id: 'design', icon: '✨', title: 'Design' },
-    { id: 'marketing', icon: '📈', title: 'Marketing' },
-    { id: 'other', icon: '🔍', title: 'Other' },
+    { id: 'Web Development', icon: '💻', title: 'Web Development' },
+    { id: 'App Development', icon: '📱', title: 'App Development' },
+    { id: 'AI & Automation', icon: '🤖', title: 'AI & Automation' },
+    { id: 'Design', icon: '✨', title: 'Design' },
+    { id: 'Marketing', icon: '📈', title: 'Marketing' },
+    { id: 'Other', icon: '🔍', title: 'Other' },
   ];
 
   const toggleService = (id: string) => {
@@ -388,8 +388,8 @@ function Step2() {
       
       <div style={{ 
         display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(140px, 40vw, 300px), 1fr))', 
-        gap: 'clamp(12px, 3vw, 20px)' 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', 
+        gap: '20px' 
       }}>
         {servicesList.map(s => {
           const isActive = selectedServices.includes(s.id);
@@ -397,28 +397,30 @@ function Step2() {
             <motion.div 
               key={s.id}
               onClick={() => toggleService(s.id)}
-              whileTap={{ scale: 0.96 }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.98 }}
               style={{
-                padding: 'clamp(16px, 4vw, 28px) 12px',
+                padding: '24px 16px',
                 borderRadius: '24px',
                 cursor: 'pointer',
-                background: '#E0E5EC',
+                background: '#F8FAFC',
                 boxShadow: isActive 
-                   ? 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
-                   : '6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8)',
-                transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                   ? 'inset 4px 4px 8px rgba(203, 213, 225, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
+                   : '6px 6px 12px rgba(203, 213, 225, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8)',
+                transition: 'all 0.2s ease',
                 textAlign: 'center',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                border: isActive ? '2px solid var(--primary)' : '2px solid transparent'
               }}
             >
-              <div style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '12px' }}>{s.icon}</div>
+              <div style={{ fontSize: '2rem', marginBottom: '12px' }}>{s.icon}</div>
               <div style={{ 
                 fontFamily: 'var(--font-inter)', 
                 fontWeight: isActive ? 800 : 600, 
-                fontSize: 'clamp(0.75rem, 2.5vw, 0.9rem)', 
+                fontSize: '0.85rem', 
                 color: isActive ? 'var(--primary)' : 'var(--text)',
                 lineHeight: 1.2
               }}>{s.title}</div>
@@ -449,10 +451,10 @@ function Step3() {
           style={{ 
             width: '100%', 
             padding: '20px', 
-            background: '#E0E5EC',
+            background: '#F8FAFC',
             borderRadius: '20px',
             border: 'none',
-            boxShadow: 'inset 5px 5px 10px rgba(163, 177, 198, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
+            boxShadow: 'inset 5px 5px 10px rgba(203, 213, 225, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
             color: 'var(--text)', 
             outline: 'none', 
             minHeight: '140px',
@@ -466,7 +468,7 @@ function Step3() {
       <div style={{ marginBottom: '40px' }}>
         <label style={{ display: 'block', fontFamily: 'var(--font-inter)', fontSize: '0.8rem', color: 'var(--text)', fontWeight: 700, marginBottom: '20px', textTransform: 'uppercase' }}>Budget Range *</label>
         <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-          {['< ₹2 Lakh', '₹2 Lakh - ₹10 Lakh', '₹10 Lakh - ₹25 Lakh', '₹25 Lakh +'].map(b => (
+          {['Under ₹1 Lakh', '₹1 Lakh - ₹5 Lakh', '₹5 Lakh - ₹10 Lakh', '₹10 Lakh +'].map(b => (
             <div 
               key={b}
               onClick={() => setValue('budget', b, { shouldValidate: true })}
@@ -474,10 +476,10 @@ function Step3() {
                 padding: '14px 24px', 
                 borderRadius: '16px',
                 cursor: 'pointer',
-                background: '#E0E5EC',
+                background: '#F8FAFC',
                 boxShadow: budget === b 
-                  ? 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
-                  : '4px 4px 8px rgba(163, 177, 198, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5)',
+                  ? 'inset 4px 4px 8px rgba(203, 213, 225, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
+                  : '4px 4px 8px rgba(203, 213, 225, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5)',
                 fontFamily: 'var(--font-inter)', 
                 fontSize: '0.85rem',
                 fontWeight: budget === b ? 700 : 500,
@@ -503,10 +505,10 @@ function Step3() {
                 padding: '14px 24px', 
                 borderRadius: '16px',
                 cursor: 'pointer',
-                background: '#E0E5EC',
+                background: '#F8FAFC',
                 boxShadow: timeline === t 
-                  ? 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
-                  : '4px 4px 8px rgba(163, 177, 198, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5)',
+                  ? 'inset 4px 4px 8px rgba(203, 213, 225, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
+                  : '4px 4px 8px rgba(203, 213, 225, 0.3), -4px -4px 8px rgba(255, 255, 255, 0.5)',
                 fontFamily: 'var(--font-inter)', 
                 fontSize: '0.85rem',
                 fontWeight: timeline === t ? 700 : 500,
@@ -540,10 +542,10 @@ function Step4() {
           style={{ 
             width: '100%', 
             padding: '20px', 
-            background: '#E0E5EC',
+            background: '#F8FAFC',
             borderRadius: '16px',
             border: 'none',
-            boxShadow: 'inset 5px 5px 10px rgba(163, 177, 198, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
+            boxShadow: 'inset 5px 5px 10px rgba(203, 213, 225, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
             color: 'var(--text)', 
             outline: 'none',
             fontFamily: 'var(--font-inter)'
@@ -560,10 +562,10 @@ function Step4() {
           style={{ 
             width: '100%', 
             padding: '20px', 
-            background: '#E0E5EC',
+            background: '#F8FAFC',
             borderRadius: '16px',
             border: 'none',
-            boxShadow: 'inset 5px 5px 10px rgba(163, 177, 198, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
+            boxShadow: 'inset 5px 5px 10px rgba(203, 213, 225, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
             color: 'var(--text)', 
             outline: 'none',
             fontFamily: 'var(--font-inter)'
@@ -588,8 +590,8 @@ function Step5() {
       <div style={{ 
         padding: '32px', 
         borderRadius: '24px',
-        background: '#E0E5EC',
-        boxShadow: 'inset 4px 4px 8px rgba(163, 177, 198, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.5)',
+        background: '#F8FAFC',
+        boxShadow: 'inset 4px 4px 8px rgba(203, 213, 225, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.5)',
       }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
           <div>

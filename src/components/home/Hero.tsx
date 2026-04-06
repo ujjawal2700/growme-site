@@ -78,28 +78,28 @@ export default function Hero() {
           className="p-img"
           style={{ position: 'absolute', top: '10%', left: '8%', width: '280px', rotate: '-6deg', ...createParallax(60, 40) }}
         >
-          <img src="/project1.png" alt="Project 1" style={{ width: '100%', borderRadius: '16px', boxShadow: '8px 8px 24px rgba(163, 177, 198, 0.5), -8px -8px 24px rgba(255, 255, 255, 0.8)' }} />
+          <img src="/project1.png" alt="Project 1" style={{ width: '100%', borderRadius: '16px', boxShadow: '8px 8px 24px rgba(203, 213, 225, 0.5), -8px -8px 24px rgba(255, 255, 255, 0.8)' }} />
         </motion.div>
         
         <motion.div 
           className="p-img"
           style={{ position: 'absolute', top: '15%', right: '5%', width: '320px', rotate: '4deg', ...createParallax(-40, 80) }}
         >
-          <img src="/project2.png" alt="Project 2" style={{ width: '100%', borderRadius: '16px', boxShadow: '8px 8px 24px rgba(163, 177, 198, 0.4)' }} />
+          <img src="/project2.png" alt="Project 2" style={{ width: '100%', borderRadius: '16px', boxShadow: '8px 8px 24px rgba(203, 213, 225, 0.4)' }} />
         </motion.div>
         
         <motion.div 
           className="p-img"
           style={{ position: 'absolute', bottom: '15%', left: '5%', width: '300px', rotate: '8deg', ...createParallax(-80, -50) }}
         >
-          <img src="/project3.png" alt="Project 3" style={{ width: '100%', borderRadius: '16px', boxShadow: '8px 8px 24px rgba(163, 177, 198, 0.4)' }} />
+          <img src="/project3.png" alt="Project 3" style={{ width: '100%', borderRadius: '16px', boxShadow: '8px 8px 24px rgba(203, 213, 225, 0.4)' }} />
         </motion.div>
 
         <motion.div 
           className="p-img"
           style={{ position: 'absolute', bottom: '10%', right: '8%', width: '260px', rotate: '-4deg', ...createParallax(50, -90) }}
         >
-          <img src="/project4.png" alt="Project 4" style={{ width: '100%', borderRadius: '16px', boxShadow: '8px 8px 24px rgba(163, 177, 198, 0.4)' }} />
+          <img src="/project4.png" alt="Project 4" style={{ width: '100%', borderRadius: '16px', boxShadow: '8px 8px 24px rgba(203, 213, 225, 0.4)' }} />
         </motion.div>
       </div>
 
@@ -114,19 +114,16 @@ export default function Hero() {
            animate={{ opacity: 1, scale: 1 }}
            transition={{ duration: 0.9, type: "spring", bounce: 0.4 }}
            style={{
-             // Optional glass backdrop if images overlap text on smaller screens
-             background: 'rgba(224, 229, 236, 0.65)',
-             backdropFilter: 'blur(12px)',
-             padding: '40px 24px',
-             borderRadius: '32px',
-             boxShadow: '0 20px 40px rgba(163, 177, 198, 0.2)',
-             border: '1px solid rgba(255, 255, 255, 0.4)'
+             display: 'flex',
+             flexDirection: 'column',
+             alignItems: 'center',
+             zIndex: 10
            }}
         >
           <div style={{
             padding: '8px 20px', display: 'inline-block', borderRadius: '20px',
-            background: '#E0E5EC',
-            boxShadow: 'inset 4px 4px 8px rgba(163, 177, 198, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)',
+            background: '#F8FAFC',
+            boxShadow: 'inset 4px 4px 8px rgba(203, 213, 225, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)',
             fontFamily: 'var(--font-inter)', fontSize: 'clamp(0.65rem, 2vw, 0.75rem)',
             fontWeight: 700, color: 'var(--primary)', letterSpacing: '0.15em',
             textTransform: 'uppercase', marginBottom: 'clamp(20px, 5vw, 40px)'

@@ -72,9 +72,9 @@ export default function AboutPage() {
                style={{ 
                  padding: '56px 48px', 
                  height: '100%',
-                 background: '#E0E5EC',
+                 background: '#F8FAFC',
                  borderRadius: '32px',
-                 boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
+                 boxShadow: '9px 9px 16px rgba(203, 213, 225, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
                }}
             >
               <h3 style={{ fontFamily: 'var(--font-outfit)', fontSize: '1.75rem', fontWeight: 700, marginBottom: '24px', color: 'var(--primary)' }}>Our Mission</h3>
@@ -91,9 +91,9 @@ export default function AboutPage() {
                style={{ 
                  padding: '56px 48px', 
                  height: '100%',
-                 background: '#E0E5EC',
+                 background: '#F8FAFC',
                  borderRadius: '32px',
-                 boxShadow: 'inset 6px 6px 12px rgba(163, 177, 198, 0.4), inset -6px -6px 12px rgba(255, 255, 255, 0.6)',
+                 boxShadow: 'inset 6px 6px 12px rgba(203, 213, 225, 0.4), inset -6px -6px 12px rgba(255, 255, 255, 0.6)',
                }}
             >
               <h3 style={{ fontFamily: 'var(--font-outfit)', fontSize: '1.75rem', fontWeight: 700, marginBottom: '24px', color: 'var(--text)' }}>Our Vision</h3>
@@ -138,8 +138,8 @@ export default function AboutPage() {
                   style={{ 
                     padding: '40px', 
                     borderRadius: '24px',
-                    background: '#E0E5EC',
-                    boxShadow: '8px 8px 16px rgba(163, 177, 198, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.6)',
+                    background: '#F8FAFC',
+                    boxShadow: '8px 8px 16px rgba(203, 213, 225, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.6)',
                   }}
                 >
                   <div style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{v.icon}</div>
@@ -164,7 +164,7 @@ export default function AboutPage() {
                     width: '120px', 
                     height: '120px', 
                     borderRadius: '50%', 
-                    background: '#E0E5EC', 
+                    background: '#F8FAFC', 
                     margin: '0 auto 24px', 
                     display: 'flex',
                     alignItems: 'center',
@@ -173,7 +173,7 @@ export default function AboutPage() {
                     fontWeight: 800,
                     fontSize: '2rem',
                     color: 'var(--primary)',
-                    boxShadow: '8px 8px 16px rgba(163, 177, 198, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.7)'
+                    boxShadow: '8px 8px 16px rgba(203, 213, 225, 0.6), -8px -8px 16px rgba(255, 255, 255, 0.7)'
                   }}>
                     {t.initials}
                   </div>

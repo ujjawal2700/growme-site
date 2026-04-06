@@ -82,7 +82,7 @@ export default function BlogContentPage() {
               }}
             >
               <div style={{ 
-                width: '48px', height: '48px', borderRadius: '50%', background: '#E0E5EC',
+                width: '48px', height: '48px', borderRadius: '50%', background: '#F8FAFC',
                 display: 'flex', alignItems: 'center', justifyContent: 'center',
                 fontWeight: 800, fontSize: '0.9rem', color: 'var(--primary)',
                 boxShadow: 'inset 2px 2px 5px rgba(163,177,198,0.5), inset -2px -2px 5px rgba(255,255,255,0.8)'
@@ -111,8 +111,8 @@ export default function BlogContentPage() {
               borderRadius: '40px', 
               overflow: 'hidden',
               marginBottom: '64px',
-              background: '#E0E5EC',
-              boxShadow: '20px 20px 40px rgba(163, 177, 198, 0.5), -20px -20px 40px rgba(255, 255, 255, 0.7)'
+              background: '#F8FAFC',
+              boxShadow: '20px 20px 40px rgba(203, 213, 225, 0.5), -20px -20px 40px rgba(255, 255, 255, 0.7)'
             }}
           >
             <img 
@@ -144,8 +144,8 @@ export default function BlogContentPage() {
               gap: '10px',
               padding: '14px 28px',
               borderRadius: '16px',
-              background: '#E0E5EC',
-              boxShadow: '6px 6px 12px rgba(163, 177, 198, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.8)',
+              background: '#F8FAFC',
+              boxShadow: '6px 6px 12px rgba(203, 213, 225, 0.5), -6px -6px 12px rgba(255, 255, 255, 0.8)',
               textDecoration: 'none',
               color: 'var(--primary)',
               fontWeight: 700,

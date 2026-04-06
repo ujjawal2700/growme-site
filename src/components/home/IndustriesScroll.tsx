@@ -67,7 +67,7 @@ function IndustryCard({ ind, i }: { ind: typeof industries[0]; i: number }) {
       whileHover={{ translateY: -4 }}
       style={{
         borderRadius: '22px',
-        background: '#E0E5EC',
+        background: '#F8FAFC',
         boxShadow: '8px 8px 16px rgba(163,177,198,0.5), -8px -8px 16px rgba(255,255,255,0.85)',
         overflow: 'hidden',
         transition: 'box-shadow 0.3s ease',

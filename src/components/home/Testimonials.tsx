@@ -67,8 +67,8 @@ export default function Testimonials() {
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             padding: '8px 20px', borderRadius: '20px',
-            background: '#E0E5EC',
-            boxShadow: 'inset 4px 4px 8px rgba(163, 177, 198, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.5)',
+            background: '#F8FAFC',
+            boxShadow: 'inset 4px 4px 8px rgba(203, 213, 225, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.5)',
             fontFamily: 'var(--font-inter)', fontSize: '0.75rem', fontWeight: 600,
             color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '24px', textTransform: 'uppercase'
           }}>
@@ -121,7 +121,7 @@ export default function Testimonials() {
                       borderRadius: '24px',
                       overflow: 'hidden',
                       boxShadow: isActive 
-                        ? '12px 12px 30px rgba(163, 177, 198, 0.4), -12px -12px 30px rgba(255, 255, 255, 0.8)' 
+                        ? '12px 12px 30px rgba(203, 213, 225, 0.4), -12px -12px 30px rgba(255, 255, 255, 0.8)' 
                         : 'none',
                     }}
                   >
@@ -193,9 +193,9 @@ export default function Testimonials() {
                 style={{
                   width: '48px', height: '48px',
                   borderRadius: '50%',
-                  background: '#E0E5EC',
+                  background: '#F8FAFC',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '4px 4px 10px rgba(163, 177, 198, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
+                  boxShadow: '4px 4px 10px rgba(203, 213, 225, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
                   cursor: 'pointer',
                   border: 'none',
                   color: 'var(--text)',
@@ -214,9 +214,9 @@ export default function Testimonials() {
                 style={{
                   width: '48px', height: '48px',
                   borderRadius: '50%',
-                  background: '#E0E5EC',
+                  background: '#F8FAFC',
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  boxShadow: '4px 4px 10px rgba(163, 177, 198, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
+                  boxShadow: '4px 4px 10px rgba(203, 213, 225, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
                   cursor: 'pointer',
                   border: 'none',
                   color: 'var(--text)',
@@ -248,7 +248,7 @@ export default function Testimonials() {
         }
         
         button:active {
-          box-shadow: inset 4px 4px 10px rgba(163, 177, 198, 0.4), inset -4px -4px 10px rgba(255, 255, 255, 0.6) !important;
+          box-shadow: inset 4px 4px 10px rgba(203, 213, 225, 0.4), inset -4px -4px 10px rgba(255, 255, 255, 0.6) !important;
         }
 
         @media (max-width: 900px) {

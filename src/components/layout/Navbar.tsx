@@ -47,8 +47,8 @@ export default function Navbar() {
         }}
         initial={false}
         style={{
-          background: '#E0E5EC',
-          boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.8)',
+          background: '#F8FAFC',
+          boxShadow: '9px 9px 16px rgba(203, 213, 225, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.8)',
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
@@ -67,7 +67,6 @@ export default function Navbar() {
              alignItems: 'center',
              gap: '8px'
            }}>
-             <img src="/growme-logo.png" alt="GrowMe Logo" style={{ height: '32px', width: 'auto', display: 'block' }} />
              GrowMe
            </div>
         </Link>
@@ -110,8 +109,8 @@ export default function Navbar() {
               height: '40px',
               borderRadius: '12px',
               boxShadow: isMenuOpen 
-                ? 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
-                : '4px 4px 8px rgba(163, 177, 198, 0.6), -4px -4px 8px rgba(255, 255, 255, 0.8)',
+                ? 'inset 4px 4px 8px rgba(203, 213, 225, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
+                : '4px 4px 8px rgba(203, 213, 225, 0.6), -4px -4px 8px rgba(255, 255, 255, 0.8)',
               color: 'var(--text)',
               fontSize: '1.2rem',
               cursor: 'pointer',
@@ -161,8 +160,8 @@ export default function Navbar() {
                 width: '50px',
                 height: '50px',
                 borderRadius: '50%',
-                background: '#E0E5EC',
-                boxShadow: '4px 4px 10px rgba(163, 177, 198, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
+                background: '#F8FAFC',
+                boxShadow: '4px 4px 10px rgba(203, 213, 225, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
                 border: 'none',
                 color: 'var(--text)',
                 fontSize: '1.2rem',
@@ -268,9 +267,9 @@ function NavLink({ children, href }: { children: React.ReactNode; href: string }
         fontSize: '0.85rem',
         fontWeight: 500,
         color: isHovered ? 'var(--primary)' : 'var(--text)',
-        background: '#E0E5EC',
+        background: '#F8FAFC',
         boxShadow: isHovered 
-          ? 'inset 4px 4px 8px rgba(163, 177, 198, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)'
+          ? 'inset 4px 4px 8px rgba(203, 213, 225, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)'
           : 'none',
         transition: 'all 0.3s ease'
       }}

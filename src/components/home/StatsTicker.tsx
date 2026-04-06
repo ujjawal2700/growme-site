@@ -4,10 +4,10 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const stats = [
-  { num: '200+', label: 'Projects Completed' },
-  { num: '98%', label: 'Client Satisfaction' },
-  { num: '50+', label: 'Team Members' },
-  { num: '5yr', label: 'Agency Experience' },
+  { num: '50+', label: 'projects completed' },
+  { num: '5', label: 'years agency experience' },
+  { num: '10+', label: 'team members' },
+  { num: '99%', label: 'client satisfaction' },
 ];
 
 export default function StatsTicker() {
@@ -26,8 +26,8 @@ export default function StatsTicker() {
         margin: '0 48px',
         padding: '24px 0',
         borderRadius: '24px',
-        background: '#E0E5EC',
-        boxShadow: 'inset 6px 6px 12px rgba(163, 177, 198, 0.4), inset -6px -6px 12px rgba(255, 255, 255, 0.6)',
+        background: '#F8FAFC',
+        boxShadow: 'inset 6px 6px 12px rgba(203, 213, 225, 0.4), inset -6px -6px 12px rgba(255, 255, 255, 0.6)',
         overflow: 'hidden',
         position: 'relative'
       }}>
@@ -70,7 +70,7 @@ export default function StatsTicker() {
                 width: '6px', 
                 height: '6px', 
                 borderRadius: '50%', 
-                background: 'rgba(163, 177, 198, 0.3)',
+                background: 'rgba(203, 213, 225, 0.3)',
                 marginLeft: '40px' 
               }} />
             </div>

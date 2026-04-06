@@ -32,7 +32,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body
-        className={`${inter.variable} ${outfit.variable} font-sans bg-[#E0E5EC]`}
+        className={`${inter.variable} ${outfit.variable} font-sans`}
       >
         <div className="bg-grid-overlay" /> {/* GLOBAL GRID LAYER ALWAYS VISIBLE */}
         <LoadingScreen />

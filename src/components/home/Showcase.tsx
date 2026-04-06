@@ -60,7 +60,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
       onMouseLeave={() => setHovered(false)}
       style={{
         borderRadius: '24px',
-        background: '#E0E5EC',
+        background: '#F8FAFC',
         boxShadow: hovered
           ? '12px 12px 24px rgba(163,177,198,0.5), -12px -12px 24px rgba(255,255,255,0.9)'
           : '8px 8px 18px rgba(163,177,198,0.55), -8px -8px 18px rgba(255,255,255,0.85)',
@@ -236,7 +236,7 @@ function ProjectCard({ project, index }: { project: typeof projects[0]; index: n
               fontWeight: 600,
               fontFamily: 'var(--font-inter)',
               color: 'var(--text-muted)',
-              background: '#E0E5EC',
+              background: '#F8FAFC',
               boxShadow: 'inset 2px 2px 4px rgba(163,177,198,0.35), inset -2px -2px 4px rgba(255,255,255,0.6)',
               borderRadius: '6px',
               padding: '3px 8px',

@@ -15,7 +15,7 @@ export default function PrivacyPage() {
   ];
 
   return (
-    <main style={{ minHeight: '100vh', background: '#E0E5EC' }}>
+    <main style={{ minHeight: '100vh', background: '#F8FAFC' }}>
       <Navbar />
       
       <div style={{ 
@@ -35,8 +35,8 @@ export default function PrivacyPage() {
           <div style={{
             display: 'inline-flex', alignItems: 'center', gap: '8px',
             padding: '8px 20px', borderRadius: '20px',
-            background: '#E0E5EC',
-            boxShadow: 'inset 4px 4px 8px rgba(163, 177, 198, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)',
+            background: '#F8FAFC',
+            boxShadow: 'inset 4px 4px 8px rgba(203, 213, 225, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)',
             fontFamily: 'var(--font-inter)', fontSize: '0.75rem', fontWeight: 600,
             color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '32px', textTransform: 'uppercase'
           }}>
@@ -59,11 +59,11 @@ export default function PrivacyPage() {
                 }}>
                   <div style={{
                     minWidth: '28px', height: '28px', borderRadius: '50%',
-                    background: '#E0E5EC',
+                    background: '#F8FAFC',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '0.75rem',
                     fontWeight: 800,
-                    boxShadow: '4px 4px 8px rgba(163, 177, 198, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.6)',
+                    boxShadow: '4px 4px 8px rgba(203, 213, 225, 0.4), -4px -4px 8px rgba(255, 255, 255, 0.6)',
                     color: 'var(--primary)'
                   }}>{i+1}</div>
                   {s.title}
@@ -116,8 +116,8 @@ export default function PrivacyPage() {
                 style={{ 
                   borderRadius: '32px',
                   padding: 'clamp(32px, 5vw, 48px)',
-                  background: '#E0E5EC',
-                  boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
+                  background: '#F8FAFC',
+                  boxShadow: '9px 9px 16px rgba(203, 213, 225, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
                 }}
               >
                 <div style={{ 
@@ -125,11 +125,11 @@ export default function PrivacyPage() {
                 }}>
                    <div style={{
                     width: '40px', height: '40px', borderRadius: '50%',
-                    background: '#E0E5EC',
+                    background: '#F8FAFC',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
                     fontSize: '0.9rem',
                     fontWeight: 800,
-                    boxShadow: 'inset 4px 4px 8px rgba(163, 177, 198, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)',
+                    boxShadow: 'inset 4px 4px 8px rgba(203, 213, 225, 0.4), inset -4px -4px 8px rgba(255, 255, 255, 0.6)',
                     color: 'var(--primary)'
                   }}>{i+1}</div>
                   <h2 style={{ 
@@ -165,8 +165,8 @@ export default function PrivacyPage() {
               padding: '48px', 
               textAlign: 'center',
               borderRadius: '32px',
-              background: '#E0E5EC',
-              boxShadow: 'inset 5px 5px 10px rgba(163, 177, 198, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
+              background: '#F8FAFC',
+              boxShadow: 'inset 5px 5px 10px rgba(203, 213, 225, 0.4), inset -5px -5px 10px rgba(255, 255, 255, 0.6)',
             }}
           >
             <h3 style={{ 
@@ -185,8 +185,8 @@ export default function PrivacyPage() {
               <div style={{
                 padding: '16px 32px',
                 borderRadius: '99px',
-                background: '#E0E5EC',
-                boxShadow: '6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8)',
+                background: '#F8FAFC',
+                boxShadow: '6px 6px 12px rgba(203, 213, 225, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8)',
                 color: 'var(--primary)',
                 fontFamily: 'var(--font-inter)',
                 fontSize: '0.9rem',

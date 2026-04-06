@@ -39,8 +39,8 @@ export default function ProcessSteps() {
         >
           <div style={{
             display: 'inline-block', padding: '8px 20px', borderRadius: '20px',
-            background: '#E0E5EC',
-            boxShadow: 'inset 4px 4px 8px rgba(163, 177, 198, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.5)',
+            background: '#F8FAFC',
+            boxShadow: 'inset 4px 4px 8px rgba(203, 213, 225, 0.3), inset -4px -4px 8px rgba(255, 255, 255, 0.5)',
             fontFamily: 'var(--font-inter)', fontSize: '0.75rem', fontWeight: 600,
             color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '24px', textTransform: 'uppercase'
           }}>HOW WE WORK</div>
@@ -73,8 +73,8 @@ export default function ProcessSteps() {
                   className={`feature-tab ${isActive ? 'active' : ''}`}
                   style={{
                     padding: isActive ? '32px' : '24px 32px',
-                    background: isActive ? '#E0E5EC' : 'transparent',
-                    boxShadow: isActive ? '8px 8px 16px rgba(163, 177, 198, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.6)' : 'none',
+                    background: isActive ? '#F8FAFC' : 'transparent',
+                    boxShadow: isActive ? '8px 8px 16px rgba(203, 213, 225, 0.4), -8px -8px 16px rgba(255, 255, 255, 0.6)' : 'none',
                     borderRadius: '24px',
                     cursor: 'pointer',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
@@ -136,7 +136,7 @@ export default function ProcessSteps() {
                     <polygon 
                       points="60,0 120,30 60,60 0,30" 
                       fill="transparent" 
-                      stroke="rgba(163, 177, 198, 0.6)" 
+                      stroke="rgba(203, 213, 225, 0.6)" 
                       strokeWidth="1.5" 
                       strokeLinejoin="round" 
                     />
@@ -145,7 +145,7 @@ export default function ProcessSteps() {
                     <polygon 
                       points="0,30 60,60 60,120 0,90" 
                       fill="transparent" 
-                      stroke="rgba(163, 177, 198, 0.4)" 
+                      stroke="rgba(203, 213, 225, 0.4)" 
                       strokeWidth="1.5" 
                       strokeLinejoin="round" 
                     />
@@ -154,7 +154,7 @@ export default function ProcessSteps() {
                     <polygon 
                       points="60,60 120,30 120,90 60,120" 
                       fill="transparent" 
-                      stroke="rgba(163, 177, 198, 0.4)" 
+                      stroke="rgba(203, 213, 225, 0.4)" 
                       strokeWidth="1.5" 
                       strokeLinejoin="round" 
                     />
@@ -163,7 +163,7 @@ export default function ProcessSteps() {
                     <path 
                       d="M 60 15 L 100 35 L 60 55 L 20 35 Z" 
                       fill="transparent" 
-                      stroke="rgba(163, 177, 198, 0.3)" 
+                      stroke="rgba(203, 213, 225, 0.3)" 
                       strokeWidth="1.5" 
                       strokeDasharray="4 4" 
                       strokeLinejoin="round" 
