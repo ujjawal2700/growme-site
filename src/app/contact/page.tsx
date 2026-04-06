@@ -47,9 +47,9 @@ export default function ContactPage() {
               gap: '32px' 
             }}>
               {[
-                { icon: '💬', title: 'WhatsApp', detail: '+1 (555) 000-0000', link: 'https://wa.me/' },
-                { icon: '✉️', title: 'Email', detail: 'hello@growme.agency', link: 'mailto:hello@growme.agency' },
-                { icon: '📸', title: 'Instagram', detail: '@growme.agency', link: '#' },
+                { icon: '💬', title: 'WhatsApp', detail: '+91 87699 59424', link: 'https://wa.me/918769959424' },
+                { icon: '✉️', title: 'Email', detail: 'hello@growme.in', link: 'mailto:hello@growme.in' },
+                { icon: '📸', title: 'Instagram', detail: '@growme.in', link: '#' },
                 { icon: '💼', title: 'LinkedIn', detail: 'GrowMe Digital', link: '#' }
               ].map((m, i) => (
                 <motion.a 

@@ -109,7 +109,7 @@ export default function CTASection() {
           
           <div style={{ display: 'flex', justifyContent: 'center', gap: '24px', flexWrap: 'wrap' }}>
             <Button variant="primary" href="/contact">Start a Project</Button>
-            <Button variant="ghost" href="https://wa.me/">WhatsApp Us</Button>
+            <Button variant="ghost" href="https://wa.me/918769959424">WhatsApp Us</Button>
           </div>
         </motion.div>
       </div>

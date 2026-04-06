@@ -7,9 +7,17 @@ const letters = "GROWME".split("");
 
 export default function LoadingScreen() {
   const [progress, setProgress] = useState(0);
-  const [show, setShow] = useState(true);
+  // Start hidden if we've already shown it this session
+  const [show, setShow] = useState(false);
 
   useEffect(() => {
+    // Only show if NOT already seen in this browser session
+    if (sessionStorage.getItem('growme_loaded')) {
+      return; // skip — already shown
+    }
+
+    // First load: show it and mark session
+    setShow(true);
     document.body.style.overflow = 'hidden';
 
     // Randomized but steady progress for a premium feel
@@ -20,6 +28,8 @@ export default function LoadingScreen() {
           setTimeout(() => {
             setShow(false);
             document.body.style.overflow = 'unset';
+            // Mark as shown so it never appears again this session
+            sessionStorage.setItem('growme_loaded', '1');
           }, 800); 
           return 100;
         }

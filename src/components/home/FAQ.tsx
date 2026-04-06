@@ -83,7 +83,7 @@ export default function FAQ() {
           >
             We are here to help you with any questions you may have. If you
             don't find what you need, please contact us at <br className="md-hidden" />
-            <a href="mailto:support@growme.com" style={{ color: '#3B82F6', textDecoration: 'underline', transition: 'color 0.2s' }}>support@growme.com</a>
+            <a href="mailto:support@growme.in" style={{ color: '#3B82F6', textDecoration: 'underline', transition: 'color 0.2s' }}>support@growme.in</a>
           </motion.p>
         </div>
 

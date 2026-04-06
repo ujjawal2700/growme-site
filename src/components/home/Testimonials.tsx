@@ -80,13 +80,13 @@ export default function Testimonials() {
             fontSize: 'clamp(2.5rem, 5vw, 4rem)', lineHeight: 1.1, 
             color: 'var(--text)', letterSpacing: '-0.02em',
           }}>
-            Animated Testimonials
+            Client Success Stories
           </h2>
           <p style={{
             fontFamily: 'var(--font-inter)', fontSize: '1.1rem', color: 'var(--text-muted)',
             marginTop: '16px', lineHeight: 1.6
           }}>
-            Minimal testimonials sections with image and quote.
+            See how we've helped businesses transform their digital presence and drive unprecedented growth.
           </p>
         </motion.div>
 

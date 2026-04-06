@@ -5,13 +5,13 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { motion } from 'framer-motion';
 
-export default function TermsPage() {
+export default function PrivacyPage() {
   const sections = [
-    { title: 'Agreement to Terms', content: 'These Terms and Conditions constitute a legally binding agreement made between you and GrowMe Digital concerning your access to and use of our services.' },
-    { title: 'Intellectual Property Rights', content: 'Unless otherwise indicated, the Site and Services are our proprietary property and all source code, databases, functionality, software, website designs, audio, video, text, photographs, and graphics are owned or controlled by us.' },
-    { title: 'User Responsibilities', content: 'By using the Services, you represent and warrant that all registration information you submit will be true, accurate, current, and complete.' },
-    { title: 'Services & Deliverables', content: 'GrowMe will provide the services as agreed upon in specific Statements of Work (SOW) or project proposals. Timelines are estimates and subject to client cooperation and providing necessary assets.' },
-    { title: 'Payment Terms', content: 'Invoices are due within 15 days of receipt unless otherwise specified. Late payments may be subject to a 1.5% monthly late fee.' },
+    { title: 'Information We Collect', content: 'We collect information you provide directly to us, such as when you request a quote, fill out a form, or communicate with us. This may include your name, email address, phone number, and any other information you choose to provide.' },
+    { title: 'How We Use Information', content: 'We use the information we collect to provide, maintain, and improve our services, develop new ones, and protect our company and our users. We may also use this information to communicate with you about products, services, and offers.' },
+    { title: 'Information Sharing', content: 'We do not sell, trade, or otherwise transfer to outside parties your Personally Identifiable Information unless we provide users with advance notice. This does not include website hosting partners and other parties who assist us in operating our website.' },
+    { title: 'Data Security', content: 'We implement a variety of security measures to maintain the safety of your personal information. However, no method of transmission over the Internet, or method of electronic storage, is 100% secure.' },
+    { title: 'Cookies & Tracking', content: 'We use cookies and similar tracking technologies to track activity on our Services and hold certain information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.' },
   ];
 
   return (
@@ -40,7 +40,7 @@ export default function TermsPage() {
             fontFamily: 'var(--font-inter)', fontSize: '0.75rem', fontWeight: 600,
             color: 'var(--primary)', letterSpacing: '0.1em', marginBottom: '32px', textTransform: 'uppercase'
           }}>
-            <span style={{ fontSize: '1.2rem' }}>⚖️</span> LEGAL DESK
+            <span style={{ fontSize: '1.2rem' }}>🔒</span> PRIVACY
           </div>
           
           <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '16px' }}>
@@ -89,7 +89,7 @@ export default function TermsPage() {
               lineHeight: 1.1,
               letterSpacing: '-0.02em'
             }}>
-              Terms & Conditions
+              Privacy Policy
             </h1>
             <p style={{ 
               color: 'var(--primary)', 
@@ -176,7 +176,7 @@ export default function TermsPage() {
               color: 'var(--text)',
               marginBottom: '20px' 
             }}>
-              Questions about our terms?
+              Need clarity on our data policy?
             </h3>
             <a 
               href="/contact" 
@@ -196,7 +196,7 @@ export default function TermsPage() {
                 cursor: 'pointer',
                 transition: 'all 0.2s',
               }}>
-                Contact Legal Team →
+                Contact Data Officer →
               </div>
             </a>
           </motion.div>
