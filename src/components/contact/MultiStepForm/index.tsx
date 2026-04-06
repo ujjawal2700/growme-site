@@ -24,6 +24,7 @@ type FormData = z.infer<typeof formSchema>;
 export default function MultiStepForm() {
   const [step, setStep] = useState(1);
   const [isSuccess, setIsSuccess] = useState(false);
+  const formRef = React.useRef<HTMLDivElement>(null);
   const totalSteps = 5;
 
   const methods = useForm<FormData>({
@@ -37,6 +38,25 @@ export default function MultiStepForm() {
   });
 
   const { handleSubmit, trigger, formState: { errors } } = methods;
+
+  // Auto-scroll to top of form on step change
+  React.useEffect(() => {
+    if (step > 1) {
+      const element = formRef.current;
+      if (element) {
+        const offset = 120; // Room for fixed header
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+  }, [step]);
 
   const nextStep = async () => {
     let fieldsToValidate: (keyof FormData)[] = [];
@@ -100,7 +120,7 @@ export default function MultiStepForm() {
   if (isSuccess) {
     return (
       <div style={{ 
-        padding: '100px 48px', 
+        padding: '100px 24px', 
         textAlign: 'center', 
         maxWidth: '700px', 
         margin: '0 auto',
@@ -108,10 +128,10 @@ export default function MultiStepForm() {
         background: '#E0E5EC',
         boxShadow: '12px 12px 24px rgba(163, 177, 198, 0.6), -12px -12px 24px rgba(255, 255, 255, 0.8)',
       }}>
-        <div style={{ fontSize: '5rem', marginBottom: '32px' }}>✨</div>
-        <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '3rem', color: 'var(--text)', marginBottom: '16px' }}>Project Received!</h2>
+        <div style={{ fontSize: '4rem', marginBottom: '24px' }}>✨</div>
+        <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: 'clamp(2rem, 8vw, 3rem)', color: 'var(--text)', marginBottom: '16px' }}>Project Received!</h2>
         <p style={{ fontFamily: 'var(--font-inter)', fontSize: '1.1rem', color: 'var(--text-muted)', maxWidth: '480px', margin: '0 auto 48px' }}>
-          We&apos;ve received your request and our team will reach out within 24 hours to schedule a discovery call.
+          We&apos;ve received your request and our team will reach out within 24 hours.
         </p>
         <Button variant="primary" href="/">Return Home</Button>
       </div>
@@ -119,13 +139,53 @@ export default function MultiStepForm() {
   }
 
   const progress = ((step - 1) / (totalSteps - 1)) * 100;
+  const stepLabels = ["Basics", "Services", "Details", "Contact", "Confirm"];
 
   return (
     <FormProvider {...methods}>
-      <div style={{ maxWidth: '900px', margin: '0 auto', width: '100%' }}>
+      <div ref={formRef} style={{ maxWidth: '900px', margin: '0 auto', width: '100%', scrollMarginTop: '100px' }}>
         
-        {/* Progress Bar (Neumorphic) */}
-        <div style={{ 
+        {/* Mobile Progress Header (Premium Pill) */}
+        <div className="mobile-only-flex" style={{ 
+          flexDirection: 'column', 
+          gap: '12px', 
+          marginBottom: '40px',
+          padding: '0 8px'
+        }}>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '12px',
+            background: 'rgba(255,255,255,0.4)',
+            padding: '12px 20px',
+            borderRadius: '24px',
+            boxShadow: '4px 4px 10px rgba(163, 177, 198, 0.2)'
+          }}>
+            <div style={{
+              width: '44px', height: '44px', borderRadius: '50%',
+              background: 'var(--primary)', color: '#fff',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontWeight: 800, fontSize: '0.9rem',
+              boxShadow: '0 4px 10px rgba(59, 130, 246, 0.3)'
+            }}>
+              {step}
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontFamily: 'var(--font-inter)', fontSize: '0.65rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
+                Step {step} of {totalSteps}
+              </div>
+              <div style={{ fontFamily: 'var(--font-outfit)', fontSize: '1.1rem', fontWeight: 800, color: 'var(--text)' }}>
+                {stepLabels[step-1]}
+              </div>
+            </div>
+          </div>
+          <div style={{ height: '6px', width: '100%', background: 'rgba(0,0,0,0.05)', borderRadius: '3px', position: 'relative', overflow: 'hidden' }}>
+            <motion.div animate={{ width: `${progress}%` }} style={{ height: '100%', background: 'var(--primary)', borderRadius: '3px' }} />
+          </div>
+        </div>
+
+        {/* Desktop Progress Bar (Neumorphic) */}
+        <div className="md-hidden" style={{ 
           width: '100%', 
           height: '14px', 
           background: '#E0E5EC', 
@@ -174,22 +234,23 @@ export default function MultiStepForm() {
                   color: step === i ? 'var(--primary)' : 'inherit',
                   transition: 'all 0.3s ease'
                 }}>{i}</div>
-                <span style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>Step {i}</span>
+                <span style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em' }}>{stepLabels[i-1]}</span>
               </div>
             ))}
           </div>
 
           {/* Form Content */}
-          <div style={{ 
+          <div className="form-card-container" style={{ 
             flex: '1', 
             position: 'relative', 
-            minHeight: '400px',
+            minHeight: 'clamp(400px, 60vh, 600px)',
             background: '#E0E5EC',
-            padding: '56px',
             borderRadius: '40px',
-            boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)'
+            boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.5), -9px -9px 16px rgba(255, 255, 255, 0.7)',
+            display: 'flex',
+            flexDirection: 'column'
           }}>
-             <form onSubmit={handleSubmit(onSubmit)}>
+             <form onSubmit={handleSubmit(onSubmit)} style={{ padding: 'clamp(24px, 5vw, 56px)' }}>
                 <AnimatePresence mode="wait" custom={1}>
                   <motion.div
                     key={step}
@@ -231,9 +292,17 @@ export default function MultiStepForm() {
         </div>
       </div>
       <style>{`
+        .mobile-only-flex { display: none; }
         @media (max-width: 1024px) {
           .md-hidden { display: none !important; }
-          div[style*="padding: 56px"] { padding: 32px !important; }
+          .mobile-only-flex { display: flex; }
+          .form-card-container { 
+            border-radius: 24px !important;
+            box-shadow: none !important;
+            background: transparent !important;
+          }
+          form { padding: 8px !important; }
+          input, textarea { font-size: 16px !important; } /* Prevents iOS auto-zoom on focus */
         }
       `}</style>
     </FormProvider>
@@ -245,8 +314,8 @@ function Step1() {
   const { register, formState: { errors } } = useFormContext<FormData>();
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '2.5rem', color: 'var(--text)', marginBottom: '8px' }}>Let&apos;s start with you</h2>
-      <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', marginBottom: '48px' }}>Tell us who we&apos;re speaking with.</p>
+      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', color: 'var(--text)', marginBottom: '8px', lineHeight: 1.1 }}>Let&apos;s start with you</h2>
+      <p style={{ fontFamily: 'var(--font-inter)', fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', color: 'var(--text-muted)', marginBottom: 'clamp(24px, 5vw, 48px)' }}>Tell us who we&apos;re speaking with.</p>
       
       <div style={{ marginBottom: '32px' }}>
         <label style={{ display: 'block', fontFamily: 'var(--font-inter)', fontSize: '0.8rem', color: 'var(--text)', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Full Name *</label>
@@ -314,31 +383,45 @@ function Step2() {
 
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '2.5rem', color: 'var(--text)', marginBottom: '8px' }}>What do you need?</h2>
-      <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', marginBottom: '40px' }}>Select all that apply.</p>
+      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', color: 'var(--text)', marginBottom: '8px', lineHeight: 1.1 }}>What do you need?</h2>
+      <p style={{ fontFamily: 'var(--font-inter)', fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', color: 'var(--text-muted)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>Select all that apply.</p>
       
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '20px' }}>
+      <div style={{ 
+        display: 'grid', 
+        gridTemplateColumns: 'repeat(auto-fit, minmax(clamp(140px, 40vw, 300px), 1fr))', 
+        gap: 'clamp(12px, 3vw, 20px)' 
+      }}>
         {servicesList.map(s => {
           const isActive = selectedServices.includes(s.id);
           return (
             <motion.div 
               key={s.id}
               onClick={() => toggleService(s.id)}
-              whileTap={{ scale: 0.98 }}
+              whileTap={{ scale: 0.96 }}
               style={{
-                padding: '24px 16px',
+                padding: 'clamp(16px, 4vw, 28px) 12px',
                 borderRadius: '24px',
                 cursor: 'pointer',
                 background: '#E0E5EC',
                 boxShadow: isActive 
-                  ? 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
-                  : '6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8)',
+                   ? 'inset 4px 4px 8px rgba(163, 177, 198, 0.6), inset -4px -4px 8px rgba(255, 255, 255, 0.8)'
+                   : '6px 6px 12px rgba(163, 177, 198, 0.6), -6px -6px 12px rgba(255, 255, 255, 0.8)',
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                textAlign: 'center'
+                textAlign: 'center',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'center'
               }}
             >
-              <div style={{ fontSize: '2.5rem', marginBottom: '12px' }}>{s.icon}</div>
-              <div style={{ fontFamily: 'var(--font-inter)', fontWeight: isActive ? 700 : 500, fontSize: '0.9rem', color: isActive ? 'var(--primary)' : 'var(--text)' }}>{s.title}</div>
+              <div style={{ fontSize: 'clamp(1.8rem, 5vw, 2.5rem)', marginBottom: '12px' }}>{s.icon}</div>
+              <div style={{ 
+                fontFamily: 'var(--font-inter)', 
+                fontWeight: isActive ? 800 : 600, 
+                fontSize: 'clamp(0.75rem, 2.5vw, 0.9rem)', 
+                color: isActive ? 'var(--primary)' : 'var(--text)',
+                lineHeight: 1.2
+              }}>{s.title}</div>
             </motion.div>
           )
         })}
@@ -356,8 +439,8 @@ function Step3() {
 
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '2.5rem', color: 'var(--text)', marginBottom: '8px' }}>Project Details</h2>
-      <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', marginBottom: '40px' }}>Tell us about your vision.</p>
+      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', color: 'var(--text)', marginBottom: '8px', lineHeight: 1.1 }}>Project Details</h2>
+      <p style={{ fontFamily: 'var(--font-inter)', fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', color: 'var(--text-muted)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>Tell us about your vision.</p>
       
       <div style={{ marginBottom: '40px' }}>
         <label style={{ display: 'block', fontFamily: 'var(--font-inter)', fontSize: '0.8rem', color: 'var(--text)', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase' }}>Description *</label>
@@ -446,8 +529,8 @@ function Step4() {
   const { register, formState: { errors } } = useFormContext<FormData>();
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '2.5rem', color: 'var(--text)', marginBottom: '8px' }}>Final Details</h2>
-      <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', marginBottom: '40px' }}>Where should we send the proposal.</p>
+      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', color: 'var(--text)', marginBottom: '8px', lineHeight: 1.1 }}>Final Details</h2>
+      <p style={{ fontFamily: 'var(--font-inter)', fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', color: 'var(--text-muted)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>Where should we send the proposal.</p>
       
       <div style={{ marginBottom: '32px' }}>
         <label style={{ display: 'block', fontFamily: 'var(--font-inter)', fontSize: '0.8rem', color: 'var(--text)', fontWeight: 700, marginBottom: '12px', textTransform: 'uppercase' }}>Email Address *</label>
@@ -499,8 +582,8 @@ function Step5() {
 
   return (
     <div>
-      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: '2.5rem', color: 'var(--text)', marginBottom: '8px' }}>Confirm Request</h2>
-      <p style={{ fontFamily: 'var(--font-inter)', color: 'var(--text-muted)', marginBottom: '40px' }}>Review your details before sending.</p>
+      <h2 style={{ fontFamily: 'var(--font-outfit)', fontWeight: 800, fontSize: 'clamp(1.8rem, 6vw, 2.5rem)', color: 'var(--text)', marginBottom: '8px', lineHeight: 1.1 }}>Confirm Request</h2>
+      <p style={{ fontFamily: 'var(--font-inter)', fontSize: 'clamp(0.9rem, 2.5vw, 1rem)', color: 'var(--text-muted)', marginBottom: 'clamp(24px, 5vw, 40px)' }}>Review your details before sending.</p>
       
       <div style={{ 
         padding: '32px', 

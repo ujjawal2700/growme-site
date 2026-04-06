@@ -23,7 +23,7 @@ export default function Footer() {
         fontWeight: 900,
         fontSize: '15vw',
         lineHeight: 1,
-        color: 'rgba(0,0,0,0.02)',
+        color: 'rgba(0,0,0,0.07)',
         letterSpacing: '-0.05em',
         textAlign: 'center',
         whiteSpace: 'nowrap',
@@ -54,9 +54,10 @@ export default function Footer() {
               marginBottom: '24px',
               display: 'flex',
               alignItems: 'center',
-              gap: '4px'
+              gap: '10px'
             }}>
-              GrowMe<span style={{ width: '6px', height: '6px', background: 'var(--primary)', borderRadius: '50%', marginTop: '6px' }} />
+              <img src="/growme-logo.png" alt="GrowMe Logo" style={{ height: '36px', width: 'auto', display: 'block' }} />
+              GrowMe
             </div>
             <p style={{
               fontFamily: 'var(--font-inter)',

@@ -22,7 +22,7 @@ export default function StatsTicker() {
       overflow: 'hidden',
     }}>
       {/* THE NEUMORPHIC INSET TRACK */}
-      <div style={{
+      <div className="ticker-track" style={{
         margin: '0 48px',
         padding: '24px 0',
         borderRadius: '24px',
@@ -39,7 +39,6 @@ export default function StatsTicker() {
              gap: '100px',
              whiteSpace: 'nowrap',
              width: 'max-content',
-             paddingLeft: '50px'
            }}
         >
           {duplicatedStats.map((stat, i) => (
@@ -80,9 +79,12 @@ export default function StatsTicker() {
       </div>
 
       <style>{`
-         @media (max-width: 768px) {
-           div { margin: 0 24px !important; }
-         }
+        @media (max-width: 768px) {
+          .ticker-track { margin: 0 16px !important; }
+        }
+        @media (max-width: 360px) {
+          .ticker-track { margin: 0 10px !important; border-radius: 16px !important; }
+        }
       `}</style>
     </div>
   );

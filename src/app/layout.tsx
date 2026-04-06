@@ -4,6 +4,8 @@ import '@/styles/globals.css';
 import CustomCursor from '@/components/layout/CustomCursor';
 
 import LoadingScreen from '@/components/layout/LoadingScreen';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -36,6 +38,8 @@ export default function RootLayout({
         <LoadingScreen />
         <CustomCursor />
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

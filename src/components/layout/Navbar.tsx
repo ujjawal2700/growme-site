@@ -65,13 +65,10 @@ export default function Navbar() {
              letterSpacing: '-0.02em',
              display: 'flex',
              alignItems: 'center',
-             gap: '4px'
+             gap: '8px'
            }}>
-             GrowMe<span style={{ 
-               width: '8px', height: '8px', background: 'var(--primary)', 
-               borderRadius: '50%', marginTop: '8px',
-               boxShadow: '0 0 10px rgba(59, 130, 246, 0.3)'
-             }} />
+             <img src="/growme-logo.png" alt="GrowMe Logo" style={{ height: '32px', width: 'auto', display: 'block' }} />
+             GrowMe
            </div>
         </Link>
 
@@ -129,56 +126,125 @@ export default function Navbar() {
         )}
       </motion.div>
 
-      {/* MOBILE MENU */}
+      {/* MOBILE MENU OVERLAY */}
       <AnimatePresence>
         {isMenuOpen && mobile && (
           <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
             style={{
-              marginTop: '1rem',
-              background: '#E0E5EC',
-              boxShadow: '9px 9px 16px rgba(163, 177, 198, 0.6), -9px -9px 16px rgba(255, 255, 255, 0.8)',
-              borderRadius: '24px',
-              padding: '24px',
+              position: 'fixed',
+              top: 0,
+              left: 0,
+              width: '100vw',
+              height: '100vh',
+              background: 'rgba(224, 229, 236, 0.85)',
+              backdropFilter: 'blur(20px) saturate(180%)',
+              zIndex: 2000,
               display: 'flex',
               flexDirection: 'column',
-              gap: '16px'
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '40px'
             }}
           >
-            {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href} 
-                onClick={() => setIsMenuOpen(false)}
-                style={{
-                  fontFamily: 'var(--font-outfit)',
-                  fontSize: '1.1rem',
-                  fontWeight: 500,
-                  color: 'var(--text)',
-                  textDecoration: 'none',
-                  padding: '8px 16px'
-                }}
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div style={{ height: '1px', background: 'rgba(0,0,0,0.05)', margin: '8px 0' }} />
-            <Link 
-              href="/contact" 
+            {/* CLOSE BUTTON */}
+            <motion.button
+              whileTap={{ scale: 0.9 }}
               onClick={() => setIsMenuOpen(false)}
               style={{
-                fontFamily: 'var(--font-outfit)',
-                fontSize: '1.1rem',
-                fontWeight: 700,
-                color: 'var(--primary)',
-                textDecoration: 'none',
-                padding: '8px 16px'
+                position: 'absolute',
+                top: '2rem',
+                right: '2rem',
+                width: '50px',
+                height: '50px',
+                borderRadius: '50%',
+                background: '#E0E5EC',
+                boxShadow: '4px 4px 10px rgba(163, 177, 198, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
+                border: 'none',
+                color: 'var(--text)',
+                fontSize: '1.2rem',
+                cursor: 'pointer'
               }}
             >
-              Get Started
-            </Link>
+              ✕
+            </motion.button>
+
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '32px', textAlign: 'center' }}>
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 + 0.2 }}
+                >
+                  <Link 
+                    href={link.href} 
+                    onClick={() => setIsMenuOpen(false)}
+                    style={{
+                      fontFamily: 'var(--font-outfit)',
+                      fontSize: '2.5rem',
+                      fontWeight: 800,
+                      color: 'var(--text)',
+                      textDecoration: 'none',
+                      transition: 'color 0.3s'
+                    }}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ))}
+              
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: navLinks.length * 0.1 + 0.2 }}
+                style={{ marginTop: '20px' }}
+              >
+                <Link 
+                  href="/contact" 
+                  onClick={() => setIsMenuOpen(false)}
+                  style={{ textDecoration: 'none' }}
+                >
+                  <motion.div
+                    whileHover={{ scale: 0.98 }}
+                    whileTap={{ scale: 0.95 }}
+                    style={{
+                      padding: '20px 48px',
+                      borderRadius: '40px',
+                      background: 'var(--primary)',
+                      color: '#fff',
+                      fontFamily: 'var(--font-inter)',
+                      fontSize: '1.1rem',
+                      fontWeight: 700,
+                      boxShadow: '0 10px 20px rgba(59, 130, 246, 0.2)'
+                    }}
+                  >
+                    Get Started
+                  </motion.div>
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* FOOTER DECOR */}
+            <motion.div 
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ delay: 0.8 }}
+               style={{
+                 position: 'absolute',
+                 bottom: '3rem',
+                 fontFamily: 'var(--font-inter)',
+                 fontSize: '0.8rem',
+                 color: 'var(--text-muted)',
+                 letterSpacing: '0.1em',
+                 textTransform: 'uppercase'
+               }}
+            >
+              GrowMe Agency · Mumbai, India
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
