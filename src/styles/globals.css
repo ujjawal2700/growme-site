@@ -80,8 +80,12 @@ body {
   mix-blend-mode: multiply; /* Better visibility on light surfaces */
 }
 
-@media (hover: none) and (pointer: coarse) {
+/* HIDE CUSTOM CURSOR ON MOBILE/TABLET */
+@media (max-width: 1024px) {
   body {
-    cursor: auto;
+    cursor: auto !important;
+  }
+  .cursor, .cursor-ring {
+    display: none !important;
   }
 }
