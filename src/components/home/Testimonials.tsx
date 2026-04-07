@@ -137,7 +137,13 @@ export default function Testimonials() {
           </div>
 
           {/* RIGHT: CONTENT CONTENT */}
-          <div className="content-stack" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+          <div className="content-stack" style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            justifyContent: 'center',
+            position: 'relative',
+            zIndex: 20
+          }}>
             <AnimatePresence mode="wait">
               <motion.div
                 key={active}
@@ -187,9 +193,10 @@ export default function Testimonials() {
             </AnimatePresence>
 
             {/* NAVIGATION BUTTONS */}
-            <div style={{ display: 'flex', gap: '16px', marginTop: '48px' }}>
+            <div className="testimonial-nav">
               <button 
                 onClick={handlePrev}
+                aria-label="Previous testimonial"
                 style={{
                   width: '48px', height: '48px',
                   borderRadius: '50%',
@@ -198,19 +205,20 @@ export default function Testimonials() {
                   boxShadow: '4px 4px 10px rgba(203, 213, 225, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
                   cursor: 'pointer',
                   border: 'none',
-                  color: 'var(--text)',
+                  color: '#1A202C',
                   transition: 'all 0.2s',
                 }}
                 onMouseOver={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                onMouseOut={(e) => e.currentTarget.style.color = 'var(--text)'}
+                onMouseOut={(e) => e.currentTarget.style.color = '#1A202C'}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
                   <path d="M19 12H5M12 19l-7-7 7-7"/>
                 </svg>
               </button>
               
               <button 
                 onClick={handleNext}
+                aria-label="Next testimonial"
                 style={{
                   width: '48px', height: '48px',
                   borderRadius: '50%',
@@ -219,13 +227,13 @@ export default function Testimonials() {
                   boxShadow: '4px 4px 10px rgba(203, 213, 225, 0.4), -4px -4px 10px rgba(255, 255, 255, 0.6)',
                   cursor: 'pointer',
                   border: 'none',
-                  color: 'var(--text)',
+                  color: '#1A202C',
                   transition: 'all 0.2s',
                 }}
                 onMouseOver={(e) => e.currentTarget.style.color = 'var(--primary)'}
-                onMouseOut={(e) => e.currentTarget.style.color = 'var(--text)'}
+                onMouseOut={(e) => e.currentTarget.style.color = '#1A202C'}
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: 'block' }}>
                   <path d="M5 12h14M12 5l7 7-7 7"/>
                 </svg>
               </button>
@@ -242,6 +250,12 @@ export default function Testimonials() {
           align-items: center;
         }
 
+        .testimonial-nav {
+          display: flex;
+          gap: 16px;
+          margin-top: 48px;
+        }
+
         /* Fix button tap highlighting on mobile */
         button {
           -webkit-tap-highlight-color: transparent;
@@ -254,10 +268,16 @@ export default function Testimonials() {
         @media (max-width: 900px) {
           .testimonial-layout {
             grid-template-columns: 1fr;
-            gap: 60px;
+            gap: 40px;
           }
           .image-stack {
             max-width: 320px;
+            height: 320px;
+            margin-bottom: 20px;
+          }
+          .testimonial-nav {
+            margin-top: 32px;
+            margin-bottom: 20px;
           }
         }
       `}</style>

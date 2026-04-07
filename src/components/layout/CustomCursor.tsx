@@ -8,7 +8,8 @@ export default function CustomCursor() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    // Only run on non-touch devices
+    // Only run on laptop/desktop ( > 1024px )
+    if (window.innerWidth <= 1024) return;
     if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
 
     const onMouseMove = (e: MouseEvent) => {
