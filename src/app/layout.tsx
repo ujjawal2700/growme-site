@@ -1,27 +1,31 @@
-import type { Metadata } from 'next';
-import { Inter, Outfit } from 'next/font/google';
-import '@/styles/globals.css';
-import CustomCursor from '@/components/layout/CustomCursor';
+import type { Metadata } from "next";
+import { Inter, Outfit } from "next/font/google";
+import "@/styles/globals.css";
+import CustomCursor from "@/components/layout/CustomCursor";
 
-import LoadingScreen from '@/components/layout/LoadingScreen';
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import LoadingScreen from "@/components/layout/LoadingScreen";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 const outfit = Outfit({
-  subsets: ['latin'],
-  variable: '--font-outfit',
-  display: 'swap',
+  subsets: ["latin"],
+  variable: "--font-outfit",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: 'GrowMe — Digital Growth Agency',
-  description: 'Helping businesses grow with simple, high-end digital solutions.',
+  title: "GrowMe — Digital Growth Agency",
+  description:
+    "Helping businesses grow with simple, high-end digital solutions.",
+  other: {
+    "Impact-Site-Verification": "b974587e-8408-4552-be4c-132116d82451",
+  },
 };
 
 export default function RootLayout({
@@ -31,10 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${outfit.variable} font-sans`}
-      >
-        <div className="bg-grid-overlay" /> {/* GLOBAL GRID LAYER ALWAYS VISIBLE */}
+      <body className={`${inter.variable} ${outfit.variable} font-sans`}>
+        <div className="bg-grid-overlay" />{" "}
+        {/* GLOBAL GRID LAYER ALWAYS VISIBLE */}
         <LoadingScreen />
         <CustomCursor />
         {children}
